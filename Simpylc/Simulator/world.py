@@ -25,7 +25,6 @@
 #
 # Removing this header ends your licence.
 #
-#test test test
 
 import os
 import sys as ss

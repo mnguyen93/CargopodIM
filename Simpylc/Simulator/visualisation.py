@@ -100,7 +100,7 @@ class Window (sp.Beam):
         
 class Floor (sp.Beam):
     side = 16
-    spacing = 0.2
+    spacing = 1 #changes size of the squares
     halfSteps = round (0.5 * side / spacing)
 
     class Stripe (sp.Beam):
@@ -167,9 +167,9 @@ class Visualisation (sp.Scene):
             sp.world.physics.positionX.set (self.startX) 
             sp.world.physics.positionY.set (self.startY)
         
-        
+        #camera positioning settings
         self.camera (
-            position = sp.tEva ((sp.world.physics.positionX + 2, sp.world.physics.positionY, 2)),
+            position = sp.tEva ((sp.world.physics.positionX + 4, sp.world.physics.positionY, 2)),
             focus = sp.tEva ((sp.world.physics.positionX + 0.001, sp.world.physics.positionY, 0))
         )
         '''
