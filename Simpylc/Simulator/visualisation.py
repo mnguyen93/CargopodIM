@@ -99,18 +99,20 @@ class Window (sp.Beam):
         super () .__init__ (axis = (0, 1, 0), color = (0, 0, 1), **arguments)
         
 class Floor (sp.Beam):
-    side = 16
-    spacing = 0.2
-    halfSteps = round (0.5 * side / spacing)
+    length = 16
+    width = 2
+    spacing = 1
+    lengthHalfSteps = round (0.5 * length / spacing)
+    widthHalfSteps = round (0.5 * width / spacing)
 
     class Stripe (sp.Beam):
         def __init__ (self, **arguments):
-            super () .__init__ (size = (0.01, Floor.side, 0.001), **arguments)
+            super () .__init__ (size = (0.01, Floor.length, 0.001), **arguments)
             
     def __init__ (self, **arguments):
-        super () .__init__ (size = (self.side, self.side, 0.0005), color = normalFloorColor)
-        self.xStripes = [self.Stripe (center = (0, nr * self.spacing, 0.0001), angle = 90, color = (1, 1, 1)) for nr in range (-self.halfSteps, self.halfSteps)]
-        self.yStripes = [self.Stripe (center = (nr * self.spacing, 0, 0), color = (0, 0, 0)) for nr in range (-self.halfSteps, self.halfSteps)]
+        super () .__init__ (size = (self.length, self.width, 0.0005), color = normalFloorColor)
+        self.xStripes = [self.Stripe (center = (0, nr * self.spacing, 0.0001), angle = 90, color = (1, 1, 1)) for nr in range (-self.widthHalfSteps, self.widthHalfSteps)]
+        self.yStripes = [self.Stripe (center = (nr * self.spacing, 0, 0), color = (0, 0, 0)) for nr in range (-self.lengthHalfSteps, self.lengthHalfSteps)]
         
     def __call__ (self, parts):
         return super () .__call__ (color = collisionFloorColor if self.scene.collided else  normalFloorColor, parts = lambda:
@@ -169,7 +171,7 @@ class Visualisation (sp.Scene):
         
         
         self.camera (
-            position = sp.tEva ((sp.world.physics.positionX + 2, sp.world.physics.positionY, 2)),
+            position = sp.tEva ((sp.world.physics.positionX + 4, sp.world.physics.positionY, 4)),
             focus = sp.tEva ((sp.world.physics.positionX + 0.001, sp.world.physics.positionY, 0))
         )
         '''
