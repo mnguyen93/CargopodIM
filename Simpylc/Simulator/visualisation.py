@@ -99,26 +99,35 @@ class Window (sp.Beam):
         super () .__init__ (axis = (0, 1, 0), color = (0, 0, 1), **arguments)
         
 class Floor (sp.Beam):
-    length = 16
-    width = 2
-    spacing = 1
-    lengthHalfSteps = round (0.5 * length / spacing)
-    widthHalfSteps = round (0.5 * width / spacing)
+    trackLength = 8  # x6 in meters; 8 = 48 meters long
+    trackWidth = 2  # x6 in meters; 2 = 12 meters wide
+    spacing = 0.2
+    lengthHalfSteps = round (0.5 * trackLength / spacing)
+    widthHalfSteps = round (0.5 * trackWidth / spacing)
 
     class Stripe (sp.Beam):
-        def __init__ (self, **arguments):
-            super () .__init__ (size = (0.01, Floor.length, 0.001), **arguments)
-            
-    def __init__ (self, **arguments):
-        super () .__init__ (size = (self.length, self.width, 0.0005), color = normalFloorColor)
-        self.xStripes = [self.Stripe (center = (0, nr * self.spacing, 0.0001), angle = 90, color = (1, 1, 1)) for nr in range (-self.widthHalfSteps, self.widthHalfSteps)]
-        self.yStripes = [self.Stripe (center = (nr * self.spacing, 0, 0), color = (0, 0, 0)) for nr in range (-self.lengthHalfSteps, self.lengthHalfSteps)]
-        
-    def __call__ (self, parts):
-        return super () .__call__ (color = collisionFloorColor if self.scene.collided else  normalFloorColor, parts = lambda:
-            parts () +
-            sum (xStripe () for xStripe in self.xStripes) +
-            sum (yStripe () for yStripe in self.yStripes)
+        def __init__(self, length, **arguments):
+            super() .__init__(size = (0.01, length, 0.001), **arguments)
+
+    def __init__(self, **arguments):
+        super() .__init__ (size=(self.trackLength, self.trackWidth, 0.0005), color = normalFloorColor)
+        self.xStripes = [self.Stripe(
+            self.trackLength,
+            center=(0, nr * self.spacing, 0.0001),
+            angle=90,
+            color=(1, 1, 1)
+        ) for nr in range(-self.widthHalfSteps, self.widthHalfSteps)]
+        self.yStripes = [self.Stripe(
+            self.trackWidth,
+            center=(nr * self.spacing, 0, 0),
+            color=(0, 0, 0)
+        ) for nr in range(-self.lengthHalfSteps, self.lengthHalfSteps)]
+
+    def __call__(self, parts):
+        return super() .__call__(color=collisionFloorColor if self.scene.collided else normalFloorColor, parts=lambda:
+            parts() +
+            sum(xStripe() for xStripe in self.xStripes) +
+            sum(yStripe() for yStripe in self.yStripes)
         )
 
 class Visualisation (sp.Scene):
