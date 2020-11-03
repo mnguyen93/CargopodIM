@@ -141,15 +141,24 @@ class Visualisation (sp.Scene):
         self.windowRear = Window (size = (0.05, 0.14, 0.18), center = (-0.18, 0, -0.025),angle = 72) 
 
         self.roadCones = []
+        self.roadObstacles = []
+
         track = open ('default.track')
         
         for rowIndex, row in enumerate (track):
             for columnIndex, column in enumerate (row):
-                if column == '*':
-                    self.roadCones.append (sp.Cone (
-                        size = (0.07, 0.07, 0.15),
+                # if column == '*':
+                #     self.roadCones.append (sp.Cone (
+                #         size = (0.07, 0.07, 0.15),
+                #         center = (columnIndex / 4 - 8, rowIndex / 2 - 8, 0.15),
+                #         color = (1, 0.3, 0),
+                #         group = 1
+                #     ))
+                if column == '!':
+                    self.roadObstacles.append (sp.Beam (
+                        size = (1, 1, 0.5),
                         center = (columnIndex / 4 - 8, rowIndex / 2 - 8, 0.15),
-                        color = (1, 0.3, 0),
+                        color = (1, 1, 1),
                         group = 1
                     ))
                 elif column == "@":
@@ -159,7 +168,7 @@ class Visualisation (sp.Scene):
                     
         track.close ()
         
-        self.lidar = Lidar (120, self.roadCones)
+        self.lidar = Lidar (120, self.roadObstacles)
         
     def display (self):
         if self.init:
@@ -209,7 +218,9 @@ class Visualisation (sp.Scene):
                 self.fuselageLine ()
             ) +
             
-            sum (roadCone () for roadCone in self.roadCones)
+            # sum (roadCone () for roadCone in self.roadCones)
+            sum (roadObstacle () for roadObstacle in self.roadObstacles)
+
         )
                 
         try:
