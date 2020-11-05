@@ -99,8 +99,8 @@ class Window (sp.Beam):
         super () .__init__ (axis = (0, 1, 0), color = (0, 0, 1), **arguments)
         
 class Floor (sp.Beam):
-    trackLength = 85  # x6 in meters; 8 = 48 meters long
-    trackWidth = 20/6  # x6 in meters; 2 = 12 meters wide
+    trackLength = 102
+    trackWidth = 4
     spacing = 0.2
     lengthHalfSteps = round (0.5 * trackLength / spacing)
     widthHalfSteps = round (0.5 * trackWidth / spacing)

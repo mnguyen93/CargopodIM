@@ -26,15 +26,21 @@
 
 import simpylc as sp
 
-wheelDiameter = 0.08
+# all variable values are divided by 5:
+# 0.1 = 0.5 meter
+# 0.2 = 1 meter
+# 0.3 = 1.5 meter
+# etc.
+
+wheelDiameter = 0.06
 wheelRadius = wheelDiameter / 2
 displacementPerWheelAngle = sp.radiansPerDegree * wheelRadius
 
-bodyLength = 0.70
-bodyHeight = 0.80
-bodyWidth = 0.30
+bodyLength = 0.3
+bodyHeight = 0.1
+bodyWidth = 0.1
 
 
 leftRightWheelDistance = bodyWidth / 2
-wheelBase = 0.40
+wheelBase = bodyLength - 0.1
 wheelShift = wheelBase / 2
