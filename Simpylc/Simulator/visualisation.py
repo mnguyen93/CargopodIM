@@ -138,15 +138,13 @@ class Visualisation (sp.Scene):
         
         self.floor = Floor (scene = self)
         
-        self.fuselage = BodyPart (size = (0.70, 0.16, 0.08), center = (0, 0, 0.07), pivot = (0, 0, 1), group = 0)
-        self.fuselageLine = Line ()
-        self.cabin = BodyPart (size = (0.20, 0.16, 0.06), center = (-0.06, 0, 0.07))
+        self.carBody = BodyPart (size = (pm.bodyLength, pm.bodyWidth, pm.bodyHeight), center = (0, 0, pm.bodyHeight), pivot = (0, 0, 1), group = 0)
+
+        self.wheelFrontLeft = Wheel (center = (pm.wheelShift, pm.leftRightWheelDistance, -(pm.bodyHeight / 2)))
+        self.wheelFrontRight = Wheel (center = (pm.wheelShift, -pm.leftRightWheelDistance, -(pm.bodyHeight / 2)))
         
-        self.wheelFrontLeft = Wheel (center = (pm.wheelShift, 0.08, -0.02))
-        self.wheelFrontRight = Wheel (center = (pm.wheelShift, -0.08, -0.02))
-        
-        self.wheelRearLeft = Wheel (center = (-pm.wheelShift, 0.08, -0.02))
-        self.wheelRearRight = Wheel (center = (-pm.wheelShift, -0.08, -0.02))
+        self.wheelRearLeft = Wheel (center = (-pm.wheelShift, pm.leftRightWheelDistance, -(pm.bodyHeight / 2)))
+        self.wheelRearRight = Wheel (center = (-pm.wheelShift, -pm.leftRightWheelDistance, -(pm.bodyHeight / 2)))
         
         self.windowFront = Window (size = (0.05, 0.14, 0.14), center = (0.14, 0, -0.025), angle = -60)    
         self.windowRear = Window (size = (0.05, 0.14, 0.18), center = (-0.18, 0, -0.025),angle = 72) 
@@ -191,11 +189,7 @@ class Visualisation (sp.Scene):
         '''
         
         self.floor (parts = lambda:
-            self.fuselage (position = (sp.world.physics.positionX, sp.world.physics.positionY, 0), rotation = sp.world.physics.attitudeAngle, parts = lambda:
-                self.cabin (parts = lambda:
-                    self.windowFront () +
-                    self.windowRear ()
-                ) +
+            self.carBody (position = (sp.world.physics.positionX, sp.world.physics.positionY, 0), rotation = sp.world.physics.attitudeAngle, parts = lambda:
                 
                 self.wheelFrontLeft (
                     wheelAngle = sp.world.physics.midWheelAngle,
@@ -215,9 +209,8 @@ class Visualisation (sp.Scene):
                 self.wheelRearRight (
                     wheelAngle = sp.world.physics.midWheelAngle,
                     slipping = sp.world.physics.slipping
-                ) +
+                )
                 
-                self.fuselageLine ()
             ) +
             
             sum (roadCone () for roadCone in self.roadCones)

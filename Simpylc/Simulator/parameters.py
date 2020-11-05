@@ -26,9 +26,15 @@
 
 import simpylc as sp
 
-wheelDiameter = 0.10
+wheelDiameter = 0.08
 wheelRadius = wheelDiameter / 2
 displacementPerWheelAngle = sp.radiansPerDegree * wheelRadius
 
+bodyLength = 0.70
+bodyHeight = 0.80
+bodyWidth = 0.30
+
+
+leftRightWheelDistance = bodyWidth / 2
 wheelBase = 0.40
 wheelShift = wheelBase / 2
