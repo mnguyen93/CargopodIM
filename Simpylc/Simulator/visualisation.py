@@ -157,10 +157,10 @@ class Visualisation (sp.Scene):
 
         self.wall = sp.Beam()
 
-        self.walls = []
-
-        self.walls.append(Wall(size=(102, 0.1, 1), center=(0, 2.05, 0), color =(1, 0.3, 0)))
-        self.walls.append(Wall(size=(102, 0.1, 1), center=(0, -2.05, 0), color=(1, 0.3, 0)))
+        self.walls = [
+            Wall(size=(102, 0.1, 1), center=(0, 2.05, 0), color=(1, 0.3, 0), group=1),
+            Wall(size=(102, 0.1, 1), center=(0, -2.05, 0), color=(1, 0.3, 0), group=1)
+        ]
 
         self.init = True
 
