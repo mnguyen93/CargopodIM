@@ -39,6 +39,7 @@ import random as rd
 import simpylc as sp
 
 import parameters as pm
+import json
 
 normalFloorColor = (0, 0.003, 0)
 collisionFloorColor = (1, 0, 0.3)
@@ -155,10 +156,35 @@ class Visualisation (sp.Scene):
         self.windowFront = Window (size = (0.05, 0.14, 0.14), center = (0.14, 0, -0.025), angle = -60)    
         self.windowRear = Window (size = (0.05, 0.14, 0.18), center = (-0.18, 0, -0.025),angle = 72)
 
-        self.walls = [
-            Wall(size=(102, 0.1, 1), center=(0, 2.05, 0), color=(1, 0.3, 0), group=1),
-            Wall(size=(102, 0.1, 1), center=(0, -2.05, 0), color=(1, 0.3, 0), group=1)
-        ]
+        # self.walls = [
+        #     Wall(size=(102, 0.1, 1), center=(0, 2.05, 0), color=(1, 0.3, 0), group=1),
+        #     Wall(size=(102, 0.1, 1), center=(0, -2.05, 0), color=(1, 0.3, 0), group=1)
+        # ]
+
+        jsondata = {
+            "object1": {
+                "test": "test",
+                "x": "2",
+                "y": "3",
+            },
+            "object2": {
+                "test": "test",
+                "x": "1",
+                "y": "1",
+            }
+        }
+
+        objects = json.dumps(jsondata)
+
+        self.objects = []
+
+        for object in objects:
+            self.objects.append(
+                Wall(
+                    size=object.size,
+                    center=object.center
+                )
+            )
 
         self.init = True
 
@@ -207,7 +233,9 @@ class Visualisation (sp.Scene):
                 )
                 
             ) +
-            sum(wall() for wall in self.walls)
+            sum(wall() for wall in self.objects)
+
+
         )
                 
         try:
