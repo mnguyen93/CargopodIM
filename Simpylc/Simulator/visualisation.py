@@ -145,7 +145,7 @@ class Floor (sp.Beam):
                                  )
 
 
-class Wall(sp.Beam):
+class Rectangle(sp.Beam):
     def __init__(self, **arguments):
         super().__init__(**arguments)
 
@@ -184,31 +184,30 @@ class Visualisation (sp.Scene):
         jsondata = '''[
             
                 {
-                    "test": "test",
-                    "length": 2,
-                    "width": 2,
+                    "name": "sideWall1",
+                    "length": 102,
+                    "width": 0.1,
                     "posX": 0,
-                    "posY": 0
+                    "posY": 2.05
                 },
                 {
-                    "test": "test",
-                    "length": 2,
-                    "width": 2,
+                    "name": "sideWall2",
+                    "length": 102,
+                    "width": 0.1,
                     "posX": 0,
-                    "posY": 0
+                    "posY": -2,05
                 }
         ]'''
 
-        objects = json.loads(jsondata)
+        rectangles = json.loads(jsondata)
 
-        self.objects = []
+        self.rectangles = []
 
-        for object in objects:
-            print(type(object["length"]))
-            self.objects.append(
-                Wall(
-                    size=(object["length"], object["width"], 1),
-                    center=(object["posX"], object["posY"], 0),
+        for rectangle in rectangles:
+            self.rectangles.append(
+                Rectangle(
+                    size=(rectangle["length"], rectangle["width"], 1),
+                    center=(rectangle["posX"], rectangle["posY"], 0),
                     color=(1, 0, 1)
                 )
             )
@@ -262,7 +261,7 @@ class Visualisation (sp.Scene):
 
                    )
                    +
-                   sum(wall() for wall in self.objects)
+                   sum(rectangle() for rectangle in self.rectangles)
 
 
                    )
