@@ -208,7 +208,8 @@ class Visualisation (sp.Scene):
                 Rectangle(
                     size=(rectangle["length"], rectangle["width"], 1),
                     center=(rectangle["posX"], rectangle["posY"], 0),
-                    color=(1, 0, 1)
+                    color=(1, 0, 1),
+                    group=1
                 )
             )
 
