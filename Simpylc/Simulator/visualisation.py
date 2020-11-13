@@ -195,7 +195,7 @@ class Visualisation (sp.Scene):
                     "length": 102,
                     "width": 0.1,
                     "posX": 0,
-                    "posY": -2,05
+                    "posY": -2.05
                 }
         ]'''
 
@@ -214,7 +214,7 @@ class Visualisation (sp.Scene):
 
         self.init = True
 
-        self.lidar = Lidar(120, self.objects)
+        self.lidar = Lidar(120, self.rectangles)
 
     def display(self):
         if self.init:
