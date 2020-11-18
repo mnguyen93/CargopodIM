@@ -1,0 +1,25 @@
+{
+    "rectangles": [  
+        {
+            "name": "sideWall1",
+            "length": 102,
+            "width": 0.1,
+            "posX": 0,
+            "posY": 2.05
+        },
+        {
+            "name": "sideWall2",
+            "length": 102,
+            "width": 0.1,
+            "posX": 0,
+            "posY": -2.05
+        },
+        {
+            "name": "kraampje",
+            "length": 1,
+            "width": 1,
+            "posX": 1,
+            "posY": 1
+        }
+    ]
+}

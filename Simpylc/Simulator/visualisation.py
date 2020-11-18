@@ -39,7 +39,8 @@ import random as rd
 import simpylc as sp
 
 import parameters as pm
-import json
+import json 
+
 
 normalFloorColor = (0, 0.003, 0)
 collisionFloorColor = (1, 0, 0.3)
@@ -181,29 +182,30 @@ class Visualisation (sp.Scene):
         #     Wall(size=(102, 0.1, 1), center=(0, -2.05, 0), color=(1, 0.3, 0), group=1)
         # ]
 
-        jsondata = '''[
+        # jsondata = '''[
             
-                {
-                    "name": "sideWall1",
-                    "length": 102,
-                    "width": 0.1,
-                    "posX": 0,
-                    "posY": 2.05
-                },
-                {
-                    "name": "sideWall2",
-                    "length": 102,
-                    "width": 0.1,
-                    "posX": 0,
-                    "posY": -2.05
-                }
-        ]'''
-
-        rectangles = json.loads(jsondata)
+        #         {
+        #             "name": "sideWall1",
+        #             "length": 102,
+        #             "width": 0.1,
+        #             "posX": 0,
+        #             "posY": 2.05
+        #         },
+        #         { 
+        #             "name": "sideWall2",
+        #             "length": 102,
+        #             "width": 0.1,
+        #             "posX": 0,
+        #             "posY": -2.05
+        #         }
+        # ]'''
+        with open('obstacles.json', 'r') as rectangles:
+            obstacles_json = json.load(rectangles)
 
         self.rectangles = []
 
-        for rectangle in rectangles:
+        for rectangle in obstacles_json.get('rectangles'):
+            print(obstacles_json['rectangles'][0]['length'])
             self.rectangles.append(
                 Rectangle(
                     size=(rectangle["length"], rectangle["width"], 1),
