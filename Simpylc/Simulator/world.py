@@ -45,4 +45,5 @@ import auto_pilot as ap
 sp.World (
     ps.Physics,
     vs.Visualisation,
+    ap.AutoPilot
 )
