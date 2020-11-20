@@ -177,35 +177,12 @@ class Visualisation (sp.Scene):
         self.windowRear = Window(
             size=(0.05, 0.14, 0.18), center=(-0.18, 0, -0.025), angle=72)
 
-        # self.walls = [
-        #     Wall(size=(102, 0.1, 1), center=(0, 2.05, 0), color=(1, 0.3, 0), group=1),
-        #     Wall(size=(102, 0.1, 1), center=(0, -2.05, 0), color=(1, 0.3, 0), group=1)
-        # ]
-
-        # jsondata = '''[
-            
-        #         {
-        #             "name": "sideWall1",
-        #             "length": 102,
-        #             "width": 0.1,
-        #             "posX": 0,
-        #             "posY": 2.05
-        #         },
-        #         { 
-        #             "name": "sideWall2",
-        #             "length": 102,
-        #             "width": 0.1,
-        #             "posX": 0,
-        #             "posY": -2.05
-        #         }
-        # ]'''
         with open('obstacles.json', 'r') as rectangles:
             obstacles_json = json.load(rectangles)
 
         self.rectangles = []
 
         for rectangle in obstacles_json.get('rectangles'):
-            print(obstacles_json['rectangles'][0]['length'])
             self.rectangles.append(
                 Rectangle(
                     size=(rectangle["length"], rectangle["width"], 1),
