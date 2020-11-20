@@ -39,7 +39,7 @@ import random as rd
 import simpylc as sp
 
 import parameters as pm
-import json 
+import json
 
 
 normalFloorColor = (0, 0.003, 0)
@@ -183,7 +183,7 @@ class Visualisation (sp.Scene):
         # ]
 
         # jsondata = '''[
-            
+
         #         {
         #             "name": "sideWall1",
         #             "length": 102,
@@ -191,7 +191,7 @@ class Visualisation (sp.Scene):
         #             "posX": 0,
         #             "posY": 2.05
         #         },
-        #         { 
+        #         {
         #             "name": "sideWall2",
         #             "length": 102,
         #             "width": 0.1,
@@ -205,7 +205,7 @@ class Visualisation (sp.Scene):
         self.rectangles = []
 
         for rectangle in obstacles_json.get('rectangles'):
-            print(obstacles_json['rectangles'][0]['length'])
+            # print(obstacles_json['rectangles'][0]['length'])
             self.rectangles.append(
                 Rectangle(
                     size=(rectangle["length"], rectangle["width"], 1),
@@ -223,13 +223,15 @@ class Visualisation (sp.Scene):
         if self.init:
             self.init = False
             # Set initial car position here
-            sp.world.physics.positionX.set(0)
+            # -50 is the start of the track, 50 is the end of the track
+            # -Y is the right side of the car, +Y is the left side of the car
+            sp.world.physics.positionX.set(-50)
             sp.world.physics.positionY.set(0)
 
         self.camera(
             position=sp.tEva((sp.world.physics.positionX + 5,
                               sp.world.physics.positionY, 5)),
-            focus=sp.tEva((sp.world.physics.positionX + 0.001,
+            focus=sp.tEva((sp.world.physics.positionX + 1,
                            sp.world.physics.positionY, 0))
         )
         '''

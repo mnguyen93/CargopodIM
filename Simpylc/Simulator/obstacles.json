@@ -1,5 +1,5 @@
 {
-    "rectangles": [  
+    "rectangles": [
         {
             "name": "sideWall1",
             "length": 102,
@@ -15,11 +15,109 @@
             "posY": -2.05
         },
         {
-            "name": "kraampje",
+            "name": "planten",
+            "length": 1.5,
+            "width": 1,
+            "posX": -49,
+            "posY": 0
+        },
+        {
+            "name": "planten",
             "length": 1,
             "width": 1,
-            "posX": 1,
-            "posY": 1
+            "posX": -47,
+            "posY": 0
+        },
+        {
+            "name": "terrasje",
+            "length": 3.8,
+            "width": 1,
+            "posX": -44,
+            "posY": 0
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -41.6,
+            "posY": -0.4
+        },
+        {
+            "name": "planten",
+            "length": 1,
+            "width": 1,
+            "posX": -41,
+            "posY": 0
+        },
+        {
+            "name": "bankje",
+            "length": 0.1,
+            "width": 0.2,
+            "posX": -39,
+            "posY": 0.2
+        },
+        {
+            "name": "bankje",
+            "length": 0.1,
+            "width": 0.2,
+            "posX": -39,
+            "posY": -0.2
+        },
+        {
+            "name": "planten",
+            "length": 1,
+            "width": 0.7,
+            "posX": -37,
+            "posY": 0.2
+        },
+        {
+            "name": "bankje",
+            "length": 0.6,
+            "width": 0.4,
+            "posX": -35.8,
+            "posY": 0.1
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -36.6,
+            "posY": -1.2
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -36.6,
+            "posY": -1.5
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -36.6,
+            "posY": 0.8
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -36.6,
+            "posY": 1.6
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -36.6,
+            "posY": 1.8
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -35,
+            "posY": -0.3
         }
     ]
 }
