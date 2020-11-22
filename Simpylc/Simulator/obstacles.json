@@ -1,17 +1,59 @@
 {
     "rectangles": [
         {
-            "name": "sideWall1",
-            "length": 102,
+            "name": "sideWall",
+            "length": 10.5,
             "width": 0.1,
-            "posX": 0,
+            "posX": -45.5,
             "posY": 2.05
         },
         {
-            "name": "sideWall2",
-            "length": 102,
+            "name": "sideWall",
+            "length": 10.5,
             "width": 0.1,
-            "posX": 0,
+            "posX": -45.5,
+            "posY": -2.05
+        },
+        {
+            "name": "sideWall",
+            "length": 8.2,
+            "width": 0.1,
+            "posX": -33.8,
+            "posY": 2.05
+        },
+        {
+            "name": "sideWall",
+            "length": 8.7,
+            "width": 0.1,
+            "posX": -33.8,
+            "posY": -2.05
+        },
+        {
+            "name": "sideWall",
+            "length": 4,
+            "width": 0.1,
+            "posX": -25,
+            "posY": 2.05
+        },
+        {
+            "name": "sideWall",
+            "length": 4,
+            "width": 0.1,
+            "posX": -25,
+            "posY": -2.05
+        },
+        {
+            "name": "sideWall",
+            "length": 20.6,
+            "width": 0.1,
+            "posX": -11,
+            "posY": 2.05
+        },
+        {
+            "name": "sideWall",
+            "length": 20.6,
+            "width": 0.1,
+            "posX": -11,
             "posY": -2.05
         },
         {
@@ -53,21 +95,21 @@
             "name": "bankje",
             "length": 0.1,
             "width": 0.2,
-            "posX": -39,
+            "posX": -39.6,
             "posY": 0.2
         },
         {
             "name": "bankje",
             "length": 0.1,
             "width": 0.2,
-            "posX": -39,
+            "posX": -39.6,
             "posY": -0.2
         },
         {
             "name": "planten",
             "length": 1,
             "width": 0.7,
-            "posX": -37,
+            "posX": -37.5,
             "posY": 0.2
         },
         {
@@ -81,35 +123,35 @@
             "name": "paaltje",
             "length": 0.1,
             "width": 0.1,
-            "posX": -36.6,
+            "posX": -37.6,
             "posY": -1.2
         },
         {
             "name": "paaltje",
             "length": 0.1,
             "width": 0.1,
-            "posX": -36.6,
+            "posX": -37.6,
             "posY": -1.5
         },
         {
             "name": "paaltje",
             "length": 0.1,
             "width": 0.1,
-            "posX": -36.6,
+            "posX": -37.6,
             "posY": 0.8
         },
         {
             "name": "paaltje",
             "length": 0.1,
             "width": 0.1,
-            "posX": -36.6,
+            "posX": -37.6,
             "posY": 1.6
         },
         {
             "name": "paaltje",
             "length": 0.1,
             "width": 0.1,
-            "posX": -36.6,
+            "posX": -37.6,
             "posY": 1.8
         },
         {
@@ -118,6 +160,244 @@
             "width": 0.1,
             "posX": -35,
             "posY": -0.3
+        },
+        {
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -35,
+            "posY": 0.5
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -32,
+            "posY": -0.3
+        },
+        {
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -32,
+            "posY": 0.5
+        },
+        {
+            "name": "standbeeld",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -28.5,
+            "posY": 0
+        },
+        {
+            "name": "paal",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -28,
+            "posY": 0.4
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -26,
+            "posY": -0.3
+        },
+        {
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -26,
+            "posY": 0.5
+        },
+        {
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -24.5,
+            "posY": 0.5
+        },
+        {
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -23.5,
+            "posY": 0.5
+        },
+        {
+            "name": "planten",
+            "length": 1.2,
+            "width": 1,
+            "posX": -21,
+            "posY": 0
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -21,
+            "posY": -0.7
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -19,
+            "posY": 0.7
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -15,
+            "posY": -0.7
+        },
+        {
+            "name": "bankje",
+            "length": 1,
+            "width": 0.6,
+            "posX": -14,
+            "posY": 0
+        },
+        {
+            "name": "bankje",
+            "length": 1,
+            "width": 0.6,
+            "posX": -14,
+            "posY": 0
+        },
+        {
+            "name": "bankje",
+            "length": 1,
+            "width": 0.6,
+            "posX": -12,
+            "posY": 0
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -11,
+            "posY": 0.7
+        },
+        {
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -10.5,
+            "posY": 0.7
+        },
+        {
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -9,
+            "posY": 0.7
+        },
+        {
+            "name": "kraampje",
+            "length": 1,
+            "width": 1,
+            "posX": -8,
+            "posY": 0
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -6,
+            "posY": 0.7
+        },
+        {
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -4,
+            "posY": 0.7
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -11,
+            "posY": 0.7
+        },
+        {
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -3,
+            "posY": -0.7
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -3,
+            "posY": -0.7
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -2,
+            "posY": -1.56
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -2,
+            "posY": -1.12
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -2,
+            "posY": -0.68
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -2,
+            "posY": -0.24
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -2,
+            "posY": 0.2
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -2,
+            "posY": 0.64
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -2,
+            "posY": 1.08
+        },
+        {
+            "name": "paaltje",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": -2,
+            "posY": 1.52
+        },
+        {
+            "name": "kraampje",
+            "length": 1,
+            "width": 1,
+            "posX": -1,
+            "posY": 0
         }
     ]
 }
