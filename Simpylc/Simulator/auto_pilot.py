@@ -22,7 +22,7 @@ class AutoPilot:
             self.driveEnabled = False
 
     def sweep(self):  # Control algorithm to be tested
-            self.steeringAngle = 4
+            self.steeringAngle = 0
             self.targetVelocity = 1 if self.driveEnabled else 0
 
     def output(self):  # Output to simulator

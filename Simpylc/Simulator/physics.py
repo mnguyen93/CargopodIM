@@ -48,7 +48,7 @@ class Physics (sp.Module):
         self.inverseMidCurveRadius = sp.Register (20)       
         self.midAngularVelocity = sp.Register ()
         
-        self.attitudeAngle = sp.Register (50)
+        self.attitudeAngle = sp.Register ()
         self.courseAngle = sp.Register ()
         
         self.tangentialVelocity = sp.Register ()
