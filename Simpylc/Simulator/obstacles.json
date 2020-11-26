@@ -1,60 +1,572 @@
 {
-    "rectangles": [
+    "rectangles": [  
         {
+            "name": "sideWall",
+            "length": 23.44,
+            "width": 0.1,
+            "posX": 44.36,
+            "posY": 1.625
+        },
+        {
+            "name": "sideWall",
+            "length": 14.4,
+            "width": 0.1,
+            "posX": 49.8,
+            "posY": -1.625
+        },
+		{
+            "name": "sideWall",
+            "length": 0.1,
+            "width": 4.5,
+            "posX": 42.55,
+            "posY": -3.825
+        },
+		{
+            "name": "sideWall",
+            "length": 7.1,
+            "width": 0.1,
+            "posX": 39.00,
+            "posY": -6.025
+        },
+		{
+            "name": "sideWall",
+            "length": 0.1,
+            "width": 4.5,
+            "posX": 35.50,
+            "posY": -3.825
+        },
+		{
+            "name": "sideWall",
+            "length": 5.6,
+            "width": 0.1,
+            "posX": 32.7,
+            "posY": -1.625
+        },
+		{
+            "name": "sideWall",
+            "length": 20.4,
+            "width": 0.1,
+            "posX": 14.70,
+            "posY": -1.825
+        },
+		{
+            "name": "sideWall",
+            "length": 18.0,
+            "width": 0.1,
+            "posX": 13.60,
+            "posY": 1.825
+        },
+		{
+            "name": "bankje",
+            "length": 1.5,
+            "width": 0.3,
+            "posX": 54.36,
+            "posY": 0.3
+        },
+		{
+            "name": "trap",
+            "length": 0.3,
+            "width": 1.1,
+            "posX": 53.61,
+            "posY": 1.00
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 51.86,
+            "posY": 0.3
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 50.86,
+            "posY": 0.3
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 46.28,
+            "posY": -0.8
+        },
+		{
+            "name": "Gstar",
+            "length": 1.0,
+            "width": 0.5,
+            "posX": 43.0,
+            "posY": 0.0
+        },
+		{
+            "name": "bank plein",
+            "length": 4.5,
+            "width": 1.4,
+            "posX": 39.00,
+            "posY": -4.025
+        },
+		{
+            "name": "pilaar",
+            "length": 0.15,
+            "width": 0.15,
+            "posX": 41.25,
+            "posY": -1.825
+        },
+		{
+            "name": "pilaar",
+            "length": 0.15,
+            "width": 0.15,
+            "posX": 40.50,
+            "posY": -1.825
+        },
+		{
+            "name": "Hong",
+            "length": 1,
+            "width": 0.5,
+            "posX": 37.90,
+            "posY": -1.825
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 42.00,
+            "posY": -1.65
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 42.00,
+            "posY": -1.725
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 42,
+            "posY": -2.0
+        },
+		{
+            "name": "fietsen",
+            "length": 0.4,
+            "width": 3,
+            "posX": 42,
+            "posY": -3.6
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 42,
+            "posY": -5.2
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 36,
+            "posY": -2.0
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 36,
+            "posY": -5.2
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 36,
+            "posY": -5.3
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 36,
+            "posY": -2.1
+        },
+		{
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 35.5,
+            "posY": 0.72
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 34.0,
+            "posY": 0.72
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 31.0,
+            "posY": 0.72
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 30.95,
+            "posY": 0.7
+        },
+		{
+            "name": "BK",
+            "length": 3.1,
+            "width": 3.4,
+            "posX": 26.0,
+            "posY": 2.9
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 27.0,
+            "posY": 0.4
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 26.8,
+            "posY": 0.4
+        },
+		{
+            "name": "dunkin",
+            "length": 1.84,
+            "width": 1.28,
+            "posX": 21,
+            "posY": 0.3
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 23.0,
+            "posY": 0.72
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 23.0,
+            "posY": -1.08
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 22.60,
+            "posY": -1.08
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 22.60,
+            "posY": 0.72
+        },
+		{
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 19.6,
+            "posY": 0.68
+        },
+		{
+            "name": "box",
+            "length": 0.4,
+            "width": 0.1,
+            "posX": 19.0,
+            "posY": 0.9
+        },
+		{
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 18.0,
+            "posY": 0.68
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 18.0,
+            "posY": -0.70
+        },
+		{
+            "name": "paaltje",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.65,
+            "posY": 1.44
+        },
+		{
+            "name": "paaltje",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.65,
+            "posY": 1.08
+        },
+		{
+            "name": "paaltje",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.65,
+            "posY": 0.72
+        },
+		{
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 4.9,
+            "posY": 0.68
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 5.5,
+            "posY": 0.72
+        },
+		{
+            "name": "paaltje",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.65,
+            "posY": 0.36
+			
+        },
+		{
+            "name": "paaltje",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.65,
+            "posY": 0.0
+        },
+		{
+            "name": "paalt",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.75,
+            "posY": 0.0
+        },
+		{
+            "name": "paaltje",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.65,
+            "posY": -0.36
+        },
+		{
+            "name": "paaltje",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.65,
+            "posY": -0.72
+        },
+		{
+            "name": "standbeeld",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.9,
+            "posY": -0.15
+        },
+		{
+            "name": "paaltje",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.65,
+            "posY": -1.08
+        },
+		{
+            "name": "paaltje",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 4.65,
+            "posY": -1.44
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 5.85,
+            "posY": 0.72
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 6.25,
+            "posY": 0.72
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 6.25,
+            "posY": -1.04
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 5.85,
+            "posY": -1.04
+        },
+		{
+            "name": "terrasje",
+            "length": 1.0,
+            "width": 1.6,
+            "posX": 6.2,
+            "posY": -0.15
+        },
+		{
+            "name": "churros",
+            "length": 1.0,
+            "width": 1.6,
+            "posX": 7.7,
+            "posY": -0.15
+        },
+		{
+            "name": "terrasje",
+            "length": 1.0,
+            "width": 1.3,
+            "posX": 9.2,
+            "posY": -0.28
+        },
+		{
+            "name": "boom",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 9.2,
+            "posY": 0.68
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 8.5,
+            "posY": 0.72
+        },
+		{
+            "name": "planten",
+            "length": 1.0,
+            "width": 1.6,
+            "posX": 10.7,
+            "posY": -0.15
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 11.3,
+            "posY": -0.90
+        },
+		{
+            "name": "bankje",
+            "length": 1.0,
+            "width": 0.5,
+            "posX": 12.0,
+            "posY": 0.0
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 13.85,
+            "posY": 0.72
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 13.25,
+            "posY": 0.72
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 13.25,
+            "posY": -1.04
+        },
+		{
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
+            "posX": 13.85,
+            "posY": -1.04
+        },
+		{
+            "name": "prullenbak",
+            "length": 0.1,
+            "width": 0.1,
+            "posX": 15.3,
+            "posY": 0.72
+        },
+		{
             "name": "sideWall",
             "length": 10.5,
             "width": 0.1,
             "posX": -45.5,
-            "posY": 2.05
+            "posY": 1.825
         },
         {
             "name": "sideWall",
             "length": 10.5,
             "width": 0.1,
             "posX": -45.5,
-            "posY": -2.05
+            "posY": -1.825
         },
         {
             "name": "sideWall",
             "length": 8.2,
             "width": 0.1,
             "posX": -33.8,
-            "posY": 2.05
+            "posY": 1.825
         },
         {
             "name": "sideWall",
             "length": 8.7,
             "width": 0.1,
             "posX": -33.8,
-            "posY": -2.05
+            "posY": -1.825
         },
         {
             "name": "sideWall",
             "length": 4,
             "width": 0.1,
             "posX": -25,
-            "posY": 2.05
+            "posY": 1.825
         },
         {
             "name": "sideWall",
             "length": 4,
             "width": 0.1,
             "posX": -25,
-            "posY": -2.05
+            "posY": -1.825
         },
         {
             "name": "sideWall",
             "length": 20.6,
             "width": 0.1,
             "posX": -11,
-            "posY": 2.05
+            "posY": 1.825
         },
         {
             "name": "sideWall",
             "length": 20.6,
             "width": 0.1,
             "posX": -11,
-            "posY": -2.05
+            "posY": -1.825
         },
         {
             "name": "planten",
@@ -398,6 +910,7 @@
             "width": 1,
             "posX": -1,
             "posY": 0
-        }
+        }		
+		
     ]
 }
