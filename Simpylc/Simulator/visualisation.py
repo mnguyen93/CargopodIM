@@ -200,7 +200,7 @@ class Visualisation (sp.Scene):
         if self.init:
             self.init = False
             # Set initial car position here
-            sp.world.physics.positionX.set(0)
+            sp.world.physics.positionX.set(-51)
             sp.world.physics.positionY.set(0)
 
         self.camera(
