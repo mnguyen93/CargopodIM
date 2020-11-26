@@ -114,8 +114,8 @@ class Window (sp.Beam):
 
 
 class Floor (sp.Beam):
-    trackLength = 102
-    trackWidth = 4
+    trackLength = 114
+    trackWidth = 13
     spacing = 0.2
     lengthHalfSteps = round(0.5 * trackLength / spacing)
     widthHalfSteps = round(0.5 * trackWidth / spacing)
