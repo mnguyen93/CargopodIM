@@ -4,8 +4,7 @@ import simpylc as sp
 
 class AutoPilot:
     def __init__(self):
-        print('Use up arrow to start, down arrow to stop')
-
+        
         self.compass_angle = 0
 
         while True:
