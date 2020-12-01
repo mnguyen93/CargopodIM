@@ -41,9 +41,11 @@ import physics as ps
 import visualisation as vs
 import timing as tm
 import auto_pilot as ap
+import timing as tm
 
 sp.World (
     ps.Physics,
     vs.Visualisation,
-    ap.AutoPilot
+    ap.AutoPilot,
+    tm.Timing
 )

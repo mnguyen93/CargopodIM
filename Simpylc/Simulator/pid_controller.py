@@ -25,36 +25,28 @@
 #
 
 '''
-Requirements:
-=============
+A PID controller:
+P = knows the speed the vehicle is reaching
+I = integrated the speed difference to reach the exact speed
+D = Differentiate the speed if there was a big speed increase
 
-Given a timedependent reference signal and a timedependent feedback sensor input,
-the PID controller should minimize the difference between them.
-To this end it's output will be the sum of:
-- A term proportional to this difference
-- A term proportional the time integral of this difference
-- A term proportional to the time derivative of this difference
-The weight of this terms should be freely choosable when creating a PID controller.
-The PID controller will function in a control loop with known, but varying cycle time.
+Inputs of the PID is the Vs (the willing speed) Vi (the current speed).
+Output of the PID is the Moment or Torque
 
-Testspec:
-=========
+The PID controller will be an object and is located in the low level
+controller together with the hardware abstraction.
+The output will be implemented in the hardware abstraction (interpolator program)
 
-A number known time dependent signals will be fed to the PID controller.
-They will be shown graphically together with the output of the controller,
-allowing visual validation.
+In this program will be an loop which runs infinitely by collecting the old and new time.
+P --> Mp = p dv
+I --> Mi = i sum dv dt
+D --> Md = d * dv/dt
+----------------------- +
+      Mt = the total moment as output
+The p, i and d are constants which will be collected by tuning the program.
 
-Design:
-=======
-
-The PID controller will be coded as a class,
-receiving the p, i and d factors at construction time.
-Construction happens prior to entering the control loop.
-In the control loop, the output signal will be computed by a method of the controller,
-receiving:
-- The most recent cycle time
-- The reference signal
-- The feedback signal from the sensor
+The output of this will be a moment by reversing the interpolator a current
+will be calculated.
 '''
 import time
 
