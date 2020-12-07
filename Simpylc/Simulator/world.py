@@ -26,24 +26,24 @@
 # Removing this header ends your licence.
 #
 
+import timing as tm
+import visualisation as vs
+import physics as ps
+import lidar_pilot_sp as ls
+import lidar_pilot as lp
+import keyboard_pilot as kp
+import control as ct
+import simpylc as sp
 import os
 import sys as ss
 
-ss.path.append (os.path.abspath ('../../..')) # If you want to store your simulations somewhere else, put SimPyLC in your PYTHONPATH environment variable
+# If you want to store your simulations somewhere else, put SimPyLC in your PYTHONPATH environment variable
+ss.path.append(os.path.abspath('../../..'))
 
-import simpylc as sp
 
-import control as ct
-import keyboard_pilot as kp
-import lidar_pilot as lp
-import lidar_pilot_sp as ls
-import physics as ps
-import visualisation as vs
-import timing as tm
-
-sp.World (
-    # ct.Control,
-    # kp.KeyboardPilot,
+sp.World(
+    ct.Control,
+    kp.KeyboardPilot,
     # lp.LidarPilot,
     # ls.LidarPilotSp,
     ps.Physics,
