@@ -37,7 +37,7 @@ class KeyboardPilot:
             self.input()
             self.sweep()
             self.output()
-            tm.sleep(0.02)
+            tm.sleep(1.02)
 
     def input(self):
         key = sp.getKey()
@@ -51,10 +51,8 @@ class KeyboardPilot:
         self.steeringAngleStep = sp.world.control.steeringAngleStep
 
     def sweep(self):
-        startPositionX = 0.0
-        endPositionX = 0.0
-        distanceTravelled = ((endPositionX - startPositionX) * 1)
-
+        startPositionX = sp.world.physics.positionX + 0
+        
         if self.leftKey:
             self.steeringAngleStep += 1
             print('Steering angle step: ', self.steeringAngleStep)
@@ -71,8 +69,14 @@ class KeyboardPilot:
             print('Target velocity step: ', self.targetVelocityStep)
             print("End Position is: ", round(
                 sp.world.physics.positionX + 0, 2))
-            print("Distance travelled: ", round(distanceTravelled, 2))
+            
+        endPositionX = sp.world.physics.positionX + 0
+        distanceTravelled = (endPositionX - startPositionX) + 0
+        print("Distance travelled: ", distanceTravelled)
+        
+        
 
+        
     def output(self):
         sp.world.control.steeringAngleStep.set(self.steeringAngleStep)
         sp.world.control.targetVelocityStep.set(self.targetVelocityStep)
