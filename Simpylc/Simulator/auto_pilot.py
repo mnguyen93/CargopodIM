@@ -31,10 +31,10 @@ class AutoPilot:
             self.targetVelocity = self.velocityPidController.getY(self.timer.deltaTime, 0, 0)
             self.steeringAngle = self.steeringAnglePidController.getY(self.timer.deltaTime, 0, 0)
         else:
-            #self.steeringAngle = 5 if target_angle < 0 else -5
-            #self.targetVelocity = 1
-            self.steeringAngle = self.steeringAnglePidController.getY(self.timer.deltaTime,5 if target_angle < 0 else -5, 0 )
-            self.targetVelocity = self.velocityPidController.getY(self.timer.deltaTime, 1, 0)
+            self.steeringAngle = 5 if target_angle < 0 else -5
+            self.targetVelocity = 1
+            #self.steeringAngle = self.steeringAnglePidController.getY(self.timer.deltaTime,5 if target_angle < 0 else -5, 0 )
+            #self.targetVelocity = self.velocityPidController.getY(self.timer.deltaTime, 1, 0)
 
     def sweep(self):  # Control algorithm to be tested
         self.turn(-360)
