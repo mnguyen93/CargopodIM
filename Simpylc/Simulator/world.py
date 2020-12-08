@@ -40,13 +40,12 @@ import lidar_pilot_sp as ls
 import physics as ps
 import visualisation as vs
 import timing as tm
+import auto_pilot as ap
+import timing as tm
 
 sp.World (
-    ct.Control,
-    kp.KeyboardPilot,
-    # lp.LidarPilot,
-    # ls.LidarPilotSp,
     ps.Physics,
     vs.Visualisation,
-    # tm.Timing
+    ap.AutoPilot,
+    tm.Timing
 )
