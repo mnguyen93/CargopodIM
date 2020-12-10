@@ -61,6 +61,8 @@ class Physics (sp.Module):
         self.radialAcceleration = sp.Register ()
         self.slipping = sp.Marker ()
         self.radialVelocity = sp.Register ()
+
+        self.drivenMeters = sp.Register (0)
         
     def sweep (self):
         self.page ('traction')  
@@ -88,4 +90,6 @@ class Physics (sp.Module):
         
         self.positionX.set (self.positionX + self.velocityX * sp.world.period)
         self.positionY.set (self.positionY + self.velocityY * sp.world.period)
+
+        self.drivenMeters.set(self.drivenMeters + self.velocity * sp.world.period / 0.2)
        

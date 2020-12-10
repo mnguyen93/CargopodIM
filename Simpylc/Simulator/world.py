@@ -40,12 +40,10 @@ import lidar_pilot_sp as ls
 import physics as ps
 import visualisation as vs
 import timing as tm
-import auto_pilot as ap
-import timing as tm
+import route as r
 
 sp.World (
     ps.Physics,
     vs.Visualisation,
-    ap.AutoPilot,
-    tm.Timing
+    r.Route,
 )
