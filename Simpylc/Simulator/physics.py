@@ -91,5 +91,5 @@ class Physics (sp.Module):
         self.positionX.set (self.positionX + self.velocityX * sp.world.period)
         self.positionY.set (self.positionY + self.velocityY * sp.world.period)
 
-        self.drivenMeters.set(self.drivenMeters + self.velocity * sp.world.period / 0.2)
+        self.drivenMeters.set(self.drivenMeters + abs(self.velocity + 0) * sp.world.period / 0.2)
        

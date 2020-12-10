@@ -35,7 +35,7 @@ class Route:
                 self.step_index += 1
 
             # Goes to next step when we reach the target distance for this step.
-            elif abs(sp.world.physics.drivenMeters + 0) >= self.drive_distances[self.step_index]:
+            elif sp.world.physics.drivenMeters + 0 >= self.drive_distances[self.step_index]:
                 sp.world.physics.drivenMeters.set(0)
                 self.step_index += 1
         else:
