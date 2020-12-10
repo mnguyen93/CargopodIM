@@ -31,6 +31,9 @@ import simpylc as sp
 
 class KeyboardPilot:
     def __init__(self):
+        self.startPositionX = sp.world.physics.positionX + 0
+        # class variable made for initial position which doesn't get overwritten
+        # because of the while loop
         print('Use arrow keys to control speed and direction')
 
         while True:
@@ -51,27 +54,33 @@ class KeyboardPilot:
         self.steeringAngleStep = sp.world.control.steeringAngleStep
 
     def sweep(self):
-        startPositionX = 0.0
-        endPositionX = 0.0
-        distanceTravelled = ((endPositionX - startPositionX) * 1)
+        endPositionX = sp.world.physics.positionX + 0
+        distanceTravelled = (endPositionX - self.startPositionX) + 0
+        targetDistance = 1.5
 
         if self.leftKey:
             self.steeringAngleStep += 1
-            print('Steering angle step: ', self.steeringAngleStep)
+            # print('Steering angle step: ', self.steeringAngleStep)
         elif self.rightKey:
             self.steeringAngleStep -= 1
-            print('Steering angle step: ', self.steeringAngleStep)
+            # print('Steering angle step: ', self.steeringAngleStep)
         elif self.upKey:
             self.targetVelocityStep += 1
             print('Target velocity step: ', self.targetVelocityStep)
-            print("Start Position is: ", round(
-                sp.world.physics.positionX + 0, 2))
+            print("Start Position is: ", self.startPositionX)
         elif self.downKey:
             self.targetVelocityStep -= 1
+            self.startPositionX = sp.world.physics.positionX + 0
+            # rewrites the class variable to the new current location
+            # without rewrite it stays at 0.00...
+
             print('Target velocity step: ', self.targetVelocityStep)
-            print("End Position is: ", round(
-                sp.world.physics.positionX + 0, 2))
-            print("Distance travelled: ", round(distanceTravelled, 2))
+            print("End Position is: ", endPositionX)
+            print("Distance travelled: ", distanceTravelled)
+
+        elif distanceTravelled >= targetDistance:  # stops the car if distanceTravelled is reached
+            self.targetVelocityStep = 0
+            print('Target distance reached')
 
     def output(self):
         sp.world.control.steeringAngleStep.set(self.steeringAngleStep)
