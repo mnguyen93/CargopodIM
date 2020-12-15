@@ -10,6 +10,7 @@ import time as tm
 import simpylc as sp
 import pid_controller as pd
 import timer as tr
+import interpolation_program as int
 
 class Route:
     def __init__(self):
@@ -31,7 +32,8 @@ class Route:
         self.step_index += 1
 
         # Use interpolator here to determine the velocity this step.
-        self.velocity = 1
+        inter = int.Interpolate(curve)
+        self.velocity = inter.find_y(self.steer_angles)
 
     def sweep(self):
         self.pause = 0.02
