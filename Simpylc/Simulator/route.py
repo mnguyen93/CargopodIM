@@ -12,9 +12,9 @@ import simpylc as sp
 class Route:
     def __init__(self):
         self.step_index = 0
-        self.velocities = [0.5, 1, 0.5, 1, 0, -1, -0.5, -1, -0.5, 0]
-        self.steer_angles = [3, 0, -3, 0, 0, 0, -3, 0, 3, 0]
-        self.drive_distances = [5, 10, 5, 10, 2, 10, 5, 10, 5, 0]
+        self.velocity = 0
+        self.steer_angles = [0, 3, 0, -3, 0, 0, 0, -3, 0, 3, 0]
+        self.drive_distances = [0, 5, 10, 5, 10, 2, 10, 5, 10, 5, 0]
         self.pause = 0.02
 
         while True:
@@ -22,22 +22,27 @@ class Route:
             self.output()
             tm.sleep(self.pause)
 
+    def next_step(self):
+        sp.world.physics.drivenMeters.set(0)
+        self.step_index += 1
+
+        # Use interpolator here to determine the velocity this step.
+        self.velocity = 1
+
     def sweep(self):
         self.pause = 0.02
         if self.step_index < len(self.drive_distances):
-            self.targetVelocity = self.velocities[self.step_index]
+            self.targetVelocity = self.velocity
             self.steeringAngle = self.steer_angles[self.step_index]
 
-            # Handles standing still, stays still for drive_distances in seconds, this step.
-            if(self.velocities[self.step_index]) == 0:
-                self.pause = self.drive_distances[self.step_index]
-                sp.world.physics.drivenMeters.set(0)
-                self.step_index += 1
+            # Handles standing still, stays still for 2 seconds, this step.
+            if(self.drive_distances[self.step_index]) == 0:
+                self.pause = 2
+                self.next_step()
 
             # Goes to next step when we reach the target distance for this step.
             elif sp.world.physics.drivenMeters + 0 >= self.drive_distances[self.step_index]:
-                sp.world.physics.drivenMeters.set(0)
-                self.step_index += 1
+                self.next_step()
         else:
             self.targetVelocity = 0
             self.steeringAngle = 0
