@@ -25,7 +25,7 @@ class Route:
         self.inter = int.Interpolate(curve)
         self.step_index = 0
         self.loop = True
-        self.steer_angles = [0, 0, 0, 0, 0, 0]
+        self.steer_angles = [4, 0, 4, 0, 0, 0]
         self.drive_distances = [10, 0, -10, 10, -10, 10]
         self.velocity = 0
         self.pause = 0.02
@@ -44,7 +44,7 @@ class Route:
             self.loop = False
         else:
             self.pause = 0.02
-            self.steeringAngle = self.steer_angles[self.step_index]
+            self.steeringAngle = self.steeringPidController.getY(0.01, self.steer_angles[self.step_index], 0)
 
             # Handles standing still, if drive_distance this step is 0, it stands still for 5 seconds.
             if self.drive_distances[self.step_index] == 0:
@@ -54,7 +54,7 @@ class Route:
                 self.step_index += 1
 
             else:
-                self.velocity = self.inter.find_y(self.steer_angles[self.step_index])
+                self.velocity = self.velocityPidController.getY(0.01, self.inter.find_y(self.steer_angles[self.step_index]), 0)
                 if self.drive_distances[self.step_index] < 0:
                     self.targetVelocity = -self.velocity
                 else:
