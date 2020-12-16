@@ -31,13 +31,15 @@ import simpylc as sp
 
 class KeyboardPilot:
     def __init__(self):
+        self.startPositonX = sp.world.physics.positionX + 0
+        self.wheelDiamater = 0.4
         print('Use arrow keys to control speed and direction')
 
         while True:
             self.input()
             self.sweep()
             self.output()
-            tm.sleep(1.02)
+            tm.sleep(0.02)
 
     def input(self):
         key = sp.getKey()
@@ -51,7 +53,6 @@ class KeyboardPilot:
         self.steeringAngleStep = sp.world.control.steeringAngleStep
 
     def sweep(self):
-        startPositionX = sp.world.physics.positionX + 0
         
         if self.leftKey:
             self.steeringAngleStep += 1
@@ -62,17 +63,19 @@ class KeyboardPilot:
         elif self.upKey:
             self.targetVelocityStep += 1
             print('Target velocity step: ', self.targetVelocityStep)
-            print("Start Position is: ", round(
-                sp.world.physics.positionX + 0, 2))
+            print("Start Position is: ",
+                self.startPositonX)
         elif self.downKey:
             self.targetVelocityStep -= 1
             print('Target velocity step: ', self.targetVelocityStep)
-            print("End Position is: ", round(
-                sp.world.physics.positionX + 0, 2))
-            
-        endPositionX = sp.world.physics.positionX + 0
-        distanceTravelled = (endPositionX - startPositionX) + 0
-        print("Distance travelled: ", distanceTravelled)
+            print("End Position is: ", 
+                sp.world.physics.positionX + 0)
+            endPositionX = sp.world.physics.positionX + 0
+            distanceTravelled = (endPositionX - self.startPositonX) + 0
+            wheelRotations = distanceTravelled / self.wheelDiamater
+            print("Distance travelled: ", distanceTravelled)
+            print("Amount of wheel rotations ", wheelRotations)
+        
         
         
 

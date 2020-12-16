@@ -41,6 +41,9 @@ class Control (sp.Module):
         self.group ('control output')
         self.targetVelocity = sp.Register ()
         self.steeringAngle = sp.Register ()
+
+        self.group ('Wheel rotations') #shows in control window
+        self.wheelRotations = sp.Register ()
                 
         self.group ('sweep time measurement', True)
         self.sweepMin = sp.Register (1000)
@@ -51,11 +54,13 @@ class Control (sp.Module):
     def output (self):
         sp.world.physics.targetVelocity.set (self.targetVelocity)
         sp.world.physics.steeringAngle.set (self.steeringAngle)
+        self.wheelRotations = self.wheelRotations #this should work?
         
     def sweep (self):
         # Input to output
         self.targetVelocity.set (0.2 * self.targetVelocityStep)
         self.steeringAngle.set (10 * self.steeringAngleStep)
+        self.wheelRotations.set(1 * self.wheelRotations)
         
         # Sweep time measurement
         self.sweepMin.set (sp.world.period, sp.world.period < self.sweepMin)

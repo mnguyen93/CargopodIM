@@ -40,6 +40,7 @@ import simpylc as sp
 
 import parameters as pm
 import json
+import math 
 
 
 normalFloorColor = (0, 0.003, 0)
@@ -81,8 +82,8 @@ class Lidar:
 
 class Line (sp.Cylinder):
     def __init__(self, **arguments):
-        super() .__init__(size=(0.01, 0.01, 0), axis=(
-            1, 0, 0), angle=90, color=(0, 1, 1), **arguments)
+        super() .__init__(size=(1, 0.1, 0), axis=(
+            1, 0, 0), angle=0, color=(0, 1, 1), **arguments)
 
 
 class BodyPart (sp.Beam):
@@ -93,12 +94,23 @@ class BodyPart (sp.Beam):
 class Wheel:
     def __init__(self, **arguments):
         self.suspension = sp.Cylinder(size=(0.01, 0.01, 0.001), axis=(
-            1, 0, 0), angle=90, pivot=(0, 0, 1), **arguments)
+            1, 0, 0), angle=0, pivot=(0, 1, 1), **arguments)
         self.rim = sp.Beam(size=(0.08, 0.06, 0.02),
                            pivot=(0, 1, 0), color=(0, 0, 0))
         self.tire = sp.Cylinder(size=(pm.wheelDiameter, pm.wheelDiameter, 0.04), axis=(
-            1, 0, 0), angle=90, color=(1, 1, 0))
+            1, 0, 0), angle=0, color=(1, 1, 0))
         self.line = Line()
+
+        self.circumference = (math.pi * pm.wheelDiameter) #should be 0.1256 with diameter 0.04
+        #revolutions = distance / circumference
+        self.wheelRotations = 0
+
+    def wheelRotations(self):
+        wheelRotations = self.wheelRotations
+        if self.line.angle == 360:
+            wheelRotations = wheelRotations + 1
+        else:
+            wheelRotations = wheelRotations + 0
 
     def __call__(self, wheelAngle, slipping, steeringAngle=0):
         return self.suspension(rotation=steeringAngle, parts=lambda:
@@ -229,8 +241,8 @@ class Visualisation (sp.Scene):
             sp.world.physics.positionY.set(0)
 
         self.camera(
-            position=sp.tEva((sp.world.physics.positionX + 5,
-                              sp.world.physics.positionY, 5)),
+            position=sp.tEva((sp.world.physics.positionX + 2,
+                              sp.world.physics.positionY, 3)),
             focus=sp.tEva((sp.world.physics.positionX + 1,
                            sp.world.physics.positionY, 0))
         )
