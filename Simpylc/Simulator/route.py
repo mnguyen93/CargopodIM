@@ -20,49 +20,50 @@ class Route:
                  [-6, 0.76], [-5, 0.83], [-4, 0.93], [-3, 1.08], [-2, 1.32], [-1, 1.86], [0, 2], [1, 1.86], [2, 1.32],
                  [3, 1.08], [4, 0.93], [5, 0.83], [6, 0.76], [7, 0.7], [8, 0.66], [9, 0.62], [10, 0.59], [11, 0.56],
                  [12, 0.54], [13, 0.51], [14, 0.49], [15, 0.48], [16, 0.46], [17, 0.45], [18, 0.43], [19, 0.42],
-                 [20, 0.41]
-                 , [21, 0.4], [22, 0.39], [23, 0.38], [24, 0.37], [25, 0.37], [26, 0.36], [27, 0.35], [28, 0.34],
+                 [20, 0.41], [21, 0.4], [22, 0.39], [23, 0.38], [24, 0.37], [25, 0.37], [26, 0.36], [27, 0.35], [28, 0.34],
                  [29, 0.34], [30, 0.33])
         self.inter = int.Interpolate(curve)
         self.step_index = 0
-        self.steer_angles = [-1, 0, 2, -2]
-        self.drive_distances = [10, -10, 5, 5]
-        self.velocity = self.inter.find_y(self.steer_angles[self.step_index])
+        self.loop = True
+        self.steer_angles = [0, 0, 0, 0, 0, 0]
+        self.drive_distances = [10, 0, -10, 10, -10, 10]
+        self.velocity = 0
         self.pause = 0.02
         self.steeringPidController = pd.PidController(1.065, 0.0, -0.035)
         self.velocityPidController = pd.PidController(1.25, 0.0, 0.00065)
 
-        while True:
+        while self.loop:
             self.sweep()
             self.output()
             tm.sleep(self.pause)
 
-    def next_step(self):
-        sp.world.physics.drivenMeters.set(0)
-        self.step_index += 1
-        self.velocity = self.inter.find_y(self.steer_angles[self.step_index]) if self.step_index < len(self.drive_distances) else 0
-
-
     def sweep(self):
-        self.pause = 0.02
-        if self.step_index < len(self.drive_distances):
+        if self.step_index > len(self.drive_distances) -1:
+            self.targetVelocity = 0
+            self.steeringAngle = 0
+            self.loop = False
+        else:
+            self.pause = 0.02
             self.steeringAngle = self.steer_angles[self.step_index]
 
-            # Handles standing still, stays still for 2 seconds, this step.
+            # Handles standing still, if drive_distance this step is 0, it stands still for 5 seconds.
             if self.drive_distances[self.step_index] == 0:
-                self.pause = 2
-                self.next_step()
-            elif self.drive_distances[self.step_index] < 0:
-                self.targetVelocity = -self.velocity
+                self.targetVelocity = 0
+                self.pause = 5
+                sp.world.physics.drivenMeters.set(0)
+                self.step_index += 1
+
             else:
-                self.targetVelocity = self.velocity
+                self.velocity = self.inter.find_y(self.steer_angles[self.step_index])
+                if self.drive_distances[self.step_index] < 0:
+                    self.targetVelocity = -self.velocity
+                else:
+                    self.targetVelocity = self.velocity
 
             # Goes to next step when we reach the target distance for this step.
             if sp.world.physics.drivenMeters + 0 >= abs(self.drive_distances[self.step_index]):
-                self.next_step()
-        else:
-            self.targetVelocity = 0.0
-            self.steeringAngle = 0.0
+                sp.world.physics.drivenMeters.set(0)
+                self.step_index += 1
 
     def output(self):  # Output to simulator
         sp.world.physics.steeringAngle.set(self.steeringAngle)
