@@ -56,10 +56,10 @@ class KeyboardPilot:
         
         if self.leftKey:
             self.steeringAngleStep += 1
-            print('Steering angle step: ', self.steeringAngleStep)
+            # print('Steering angle step: ', self.steeringAngleStep)
         elif self.rightKey:
             self.steeringAngleStep -= 1
-            print('Steering angle step: ', self.steeringAngleStep)
+            # print('Steering angle step: ', self.steeringAngleStep)
         elif self.upKey:
             self.targetVelocityStep += 1
             print('Target velocity step: ', self.targetVelocityStep)
@@ -67,6 +67,10 @@ class KeyboardPilot:
                 self.startPositonX)
         elif self.downKey:
             self.targetVelocityStep -= 1
+            self.startPositionX = sp.world.physics.positionX + 0
+            # rewrites the class variable to the new current location
+            # without rewrite it stays at 0.00...
+
             print('Target velocity step: ', self.targetVelocityStep)
             print("End Position is: ", 
                 sp.world.physics.positionX + 0)
