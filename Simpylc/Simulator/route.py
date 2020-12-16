@@ -25,8 +25,8 @@ class Route:
                  [29, 0.34], [30, 0.33])
         self.inter = int.Interpolate(curve)
         self.step_index = 0
-        self.steer_angles = [0, 3, 0, -3, 0, 0, 0, -3, 0, 3]
-        self.drive_distances = [10, -5, 10, 5, 10, 2, 10, 5, 10, 5]
+        self.steer_angles = [-1, 0, 2, -2]
+        self.drive_distances = [10, -10, 5, 5]
         self.velocity = self.inter.find_y(self.steer_angles[self.step_index])
         self.pause = 0.02
         self.steeringPidController = pd.PidController(1.065, 0.0, -0.035)
@@ -42,23 +42,23 @@ class Route:
         self.step_index += 1
         self.velocity = self.inter.find_y(self.steer_angles[self.step_index]) if self.step_index < len(self.drive_distances) else 0
 
+
     def sweep(self):
         self.pause = 0.02
         if self.step_index < len(self.drive_distances):
-            if self.drive_distances[self.step_index] < 0:
-                self.targetVelocity = -self.velocity
-                self.steeringAngle = self.steer_angles[self.step_index]
-            else:
-                self.targetVelocity = self.velocity
-                self.steeringAngle = self.steer_angles[self.step_index]
+            self.steeringAngle = self.steer_angles[self.step_index]
 
             # Handles standing still, stays still for 2 seconds, this step.
-            if(self.drive_distances[self.step_index]) == 0:
+            if self.drive_distances[self.step_index] == 0:
                 self.pause = 2
                 self.next_step()
+            elif self.drive_distances[self.step_index] < 0:
+                self.targetVelocity = -self.velocity
+            else:
+                self.targetVelocity = self.velocity
 
             # Goes to next step when we reach the target distance for this step.
-            elif sp.world.physics.drivenMeters + 0 >= abs(self.drive_distances[self.step_index]):
+            if sp.world.physics.drivenMeters + 0 >= abs(self.drive_distances[self.step_index]):
                 self.next_step()
         else:
             self.targetVelocity = 0.0
