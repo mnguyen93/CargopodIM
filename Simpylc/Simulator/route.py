@@ -47,8 +47,13 @@ class Route:
     def sweep(self):
         self.pause = 0.02
         if self.step_index < len(self.drive_distances):
-            self.targetVelocity = self.velocity
-            self.steeringAngle = self.steer_angles[self.step_index]
+            if self.drive_distances >= 0 :
+               self.targetVelocity = self.velocity
+               self.steeringAngle = self.steer_angles[self.step_index]
+            if self.drive_distances  < 0:
+                self.targetVelocity = -self.velocity
+                self.steeringAngle = self.steer_angles[self.step_index]
+
 
             # Handles standing still, stays still for 2 seconds, this step.
             if(self.drive_distances[self.step_index]) == 0:
