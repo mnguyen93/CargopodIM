@@ -83,7 +83,7 @@ class Lidar:
 class Line (sp.Cylinder):
     def __init__(self, **arguments):
         super() .__init__(size=(1, 0.1, 0), axis=(
-            1, 0, 0), angle=0, color=(0, 1, 1), **arguments)
+            1, 0, 0), angle=90, color=(0, 1, 1), **arguments)
 
 
 class BodyPart (sp.Beam):
@@ -102,15 +102,9 @@ class Wheel:
         self.line = Line()
 
         self.circumference = (math.pi * pm.wheelDiameter) #should be 0.1256 with diameter 0.04
-        #revolutions = distance / circumference
-        self.wheelRotations = 0
+       
+       
 
-    def wheelRotations(self):
-        wheelRotations = self.wheelRotations
-        if self.line.angle == 360:
-            wheelRotations = wheelRotations + 1
-        else:
-            wheelRotations = wheelRotations + 0
 
     def __call__(self, wheelAngle, slipping, steeringAngle=0):
         return self.suspension(rotation=steeringAngle, parts=lambda:
@@ -241,8 +235,8 @@ class Visualisation (sp.Scene):
             sp.world.physics.positionY.set(0)
 
         self.camera(
-            position=sp.tEva((sp.world.physics.positionX + 2,
-                              sp.world.physics.positionY, 3)),
+            position=sp.tEva((sp.world.physics.positionX + 5,
+                              sp.world.physics.positionY, 5)),
             focus=sp.tEva((sp.world.physics.positionX + 1,
                            sp.world.physics.positionY, 0))
         )
