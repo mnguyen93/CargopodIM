@@ -82,7 +82,7 @@ class Lidar:
 
 class Line (sp.Cylinder):
     def __init__(self, **arguments):
-        super() .__init__(size=(1, 0.1, 0), axis=(
+        super() .__init__(size=(0.1, 0.1, 0), axis=(
             1, 0, 0), angle=90, color=(0, 1, 1), **arguments)
 
 
