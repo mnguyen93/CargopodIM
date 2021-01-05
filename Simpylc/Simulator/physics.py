@@ -77,7 +77,6 @@ class Physics (sp.Module):
         self.midWheelAngle.set (self.midWheelAngle + self.midWheelAngularVelocity * sp.world.period)
         self.wheelRotations.set ((self.midWheelAngle + 0) / 360)
         self.distTravelled.set (self.wheelRotations * (math.pi * pm.wheelDiameter))
-        print("Amount of wheel rotations: ", ((self.midWheelAngle + 0) / 360))
 
         self.tangentialVelocity.set (self.midWheelAngularVelocity * pm.displacementPerWheelAngle)
         

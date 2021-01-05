@@ -26,7 +26,7 @@ class Route:
         self.step_index = 0
         self.loop = True
         self.steer_angles = [4, 0, 4, 0, 0, 0]
-        self.drive_distances = [10, 0, -10, 10, -10, 10]
+        self.drive_rotations = [10, 0, -10, 10, -10, 10]
         self.velocity = 0
         self.pause = 0.02
         self.steeringPidController = pd.PidController(1.065, 0.0, -0.035)
@@ -40,7 +40,7 @@ class Route:
             tm.sleep(self.pause)
 
     def sweep(self):
-        if self.step_index > len(self.drive_distances) -1:
+        if self.step_index > len(self.drive_rotations) -1:
             self.targetVelocity = 0
             self.steeringAngle = 0
             self.loop = False
@@ -49,24 +49,25 @@ class Route:
             self.steeringAngle = self.steeringPidController.getY(self.timer.deltaTime, self.steer_angles[self.step_index], 0)
 
             # Handles standing still, if drive_distance this step is 0, it stands still for 5 seconds.
-            if self.drive_distances[self.step_index] == 0:
+            if self.drive_rotations[self.step_index] == 0:
                 self.targetVelocity = 0
                 self.pause = 5
-                sp.world.physics.drivenMeters.set(0)
+                sp.world.physics.wheelRotations.set(0)
                 self.step_index += 1
 
             else:
                 self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
-                if self.drive_distances[self.step_index] < 0:
+                if self.drive_rotations[self.step_index] < 0:
                     self.targetVelocity = -self.velocity
                 else:
                     self.targetVelocity = self.velocity
 
             # Goes to next step when we reach the target distance for this step.
-            if sp.world.physics.drivenMeters + 0 >= abs(self.drive_distances[self.step_index]):
-                sp.world.physics.drivenMeters.set(0)
+            if sp.world.physics.wheelRotations + 0 >= abs(self.drive_rotations[self.step_index]):
+                sp.world.physics.wheelRotations.set(0)
                 self.step_index += 1
 
     def output(self):  # Output to simulator
         sp.world.physics.steeringAngle.set(self.steeringAngle)
-        sp.world.physics.targetVelocity.set(self.targetVelocity)
+        sp.world.physics.targetVelocity.set(2)
+        # sp.world.physics.targetVelocity.set(self.targetVelocity)

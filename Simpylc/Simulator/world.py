@@ -36,6 +36,7 @@ import control as ct
 import simpylc as sp
 import os
 import sys as ss
+import route as r
 
 # If you want to store your simulations somewhere else, put SimPyLC in your PYTHONPATH environment variable
 ss.path.append(os.path.abspath('../../..'))
