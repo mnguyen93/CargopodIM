@@ -75,7 +75,7 @@ class Physics (sp.Module):
         #changing midwheelangle changes the amount of degrees the wheel has travelled
         self.midWheelAngularVelocity.set (self.velocity / pm.displacementPerWheelAngle)
         self.midWheelAngle.set (self.midWheelAngle + self.midWheelAngularVelocity * sp.world.period)
-        self.wheelRotations.set ((self.midWheelAngle + 0) / 360)
+        self.wheelRotations.set (abs((self.midWheelAngle + 0)) / 360)
         self.distTravelled.set (self.wheelRotations * (math.pi * pm.wheelDiameter))
 
         self.tangentialVelocity.set (self.midWheelAngularVelocity * pm.displacementPerWheelAngle)

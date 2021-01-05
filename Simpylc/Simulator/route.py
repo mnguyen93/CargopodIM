@@ -39,6 +39,10 @@ class Route:
             self.output()
             tm.sleep(self.pause)
 
+    def setWheelRotationToZero(self):
+        sp.world.physics.wheelRotations.set(0)
+        sp.world.physics.midWheelAngle.set(0)
+
     def sweep(self):
         if self.step_index > len(self.drive_rotations) -1:
             self.targetVelocity = 0
@@ -52,7 +56,7 @@ class Route:
             if self.drive_rotations[self.step_index] == 0:
                 self.targetVelocity = 0
                 self.pause = 5
-                sp.world.physics.wheelRotations.set(0)
+                self.setWheelRotationToZero()
                 self.step_index += 1
 
             else:
@@ -64,10 +68,9 @@ class Route:
 
             # Goes to next step when we reach the target distance for this step.
             if sp.world.physics.wheelRotations + 0 >= abs(self.drive_rotations[self.step_index]):
-                sp.world.physics.wheelRotations.set(0)
+                self.setWheelRotationToZero()
                 self.step_index += 1
 
     def output(self):  # Output to simulator
         sp.world.physics.steeringAngle.set(self.steeringAngle)
-        sp.world.physics.targetVelocity.set(2)
-        # sp.world.physics.targetVelocity.set(self.targetVelocity)
+        sp.world.physics.targetVelocity.set(self.targetVelocity)
