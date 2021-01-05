@@ -52,10 +52,12 @@ class Control (sp.Module):
         sp.world.physics.targetVelocity.set (self.targetVelocity)
         sp.world.physics.steeringAngle.set (self.steeringAngle)
         
+        
     def sweep (self):
         # Input to output
         self.targetVelocity.set (0.2 * self.targetVelocityStep)
         self.steeringAngle.set (10 * self.steeringAngleStep)
+        
         
         # Sweep time measurement
         self.sweepMin.set (sp.world.period, sp.world.period < self.sweepMin)

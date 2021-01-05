@@ -25,7 +25,7 @@
 #
 
 import simpylc as sp
-
+import math
 import parameters as pm
 
 class Physics (sp.Module):
@@ -40,7 +40,11 @@ class Physics (sp.Module):
         self.targetVelocity= sp.Register ()
         self.velocity = sp.Register ()
         self.midWheelAngularVelocity = sp.Register ()
-        self.midWheelAngle = sp.Register (30)
+        self.midWheelAngle = sp.Register (0)
+
+        self.wheelRotations = sp.Register ()
+        self.distTravelled = sp.Register ()
+
         
         self.steeringAngle = sp.Register ()
         self.midSteeringAngle = sp.Register ()
@@ -61,17 +65,21 @@ class Physics (sp.Module):
         self.radialAcceleration = sp.Register ()
         self.slipping = sp.Marker ()
         self.radialVelocity = sp.Register ()
-
-        self.drivenMeters = sp.Register (0)
         
     def sweep (self):
         self.page ('traction')  
         self.group ('wheels', True)
         
         self.velocity.set (self.velocity + self.acceleration * sp.world.period, self.velocity < self.targetVelocity, self.velocity - self.acceleration * sp.world.period)
+
+        #changing midwheelangle changes the amount of degrees the wheel has travelled
         self.midWheelAngularVelocity.set (self.velocity / pm.displacementPerWheelAngle)
         self.midWheelAngle.set (self.midWheelAngle + self.midWheelAngularVelocity * sp.world.period)
-        self.tangentialVelocity.set (self.midWheelAngularVelocity * pm.displacementPerWheelAngle) 
+        self.wheelRotations.set ((self.midWheelAngle + 0) / 360)
+        self.distTravelled.set (self.wheelRotations * (math.pi * pm.wheelDiameter))
+        print("Amount of wheel rotations: ", ((self.midWheelAngle + 0) / 360))
+
+        self.tangentialVelocity.set (self.midWheelAngularVelocity * pm.displacementPerWheelAngle)
         
         self.midSteeringAngle.set (sp.atan (0.5 * sp.tan (self.steeringAngle)))
         
@@ -90,6 +98,4 @@ class Physics (sp.Module):
         
         self.positionX.set (self.positionX + self.velocityX * sp.world.period)
         self.positionY.set (self.positionY + self.velocityY * sp.world.period)
-
-        self.drivenMeters.set(self.drivenMeters + abs(self.velocity + 0) * sp.world.period / 0.2)
-       
+        

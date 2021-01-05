@@ -39,7 +39,8 @@ import random as rd
 import simpylc as sp
 
 import parameters as pm
-import json 
+import json
+import math
 
 
 normalFloorColor = (0, 0.003, 0)
@@ -93,12 +94,17 @@ class BodyPart (sp.Beam):
 class Wheel:
     def __init__(self, **arguments):
         self.suspension = sp.Cylinder(size=(0.01, 0.01, 0.001), axis=(
-            1, 0, 0), angle=90, pivot=(0, 0, 1), **arguments)
+            1, 0, 0), angle=0, pivot=(0, 1, 1), **arguments)
         self.rim = sp.Beam(size=(0.08, 0.06, 0.02),
                            pivot=(0, 1, 0), color=(0, 0, 0))
         self.tire = sp.Cylinder(size=(pm.wheelDiameter, pm.wheelDiameter, 0.04), axis=(
-            1, 0, 0), angle=90, color=(1, 1, 0))
+            1, 0, 0), angle=0, color=(1, 1, 0))
         self.line = Line()
+
+        self.circumference = (math.pi * pm.wheelDiameter) #should be 0.1256 with diameter 0.04
+
+
+
 
     def __call__(self, wheelAngle, slipping, steeringAngle=0):
         return self.suspension(rotation=steeringAngle, parts=lambda:
@@ -114,8 +120,8 @@ class Window (sp.Beam):
 
 
 class Floor (sp.Beam):
-    trackLength = 102
-    trackWidth = 4
+    trackLength = 114
+    trackWidth = 13
     spacing = 0.2
     lengthHalfSteps = round(0.5 * trackLength / spacing)
     widthHalfSteps = round(0.5 * trackWidth / spacing)
@@ -200,13 +206,15 @@ class Visualisation (sp.Scene):
         if self.init:
             self.init = False
             # Set initial car position here
+            # -50 is the start of the track, 50 is the end of the track
+            # -Y is the right side of the car, +Y is the left side of the car
             sp.world.physics.positionX.set(-51)
             sp.world.physics.positionY.set(0)
 
         self.camera(
             position=sp.tEva((sp.world.physics.positionX + 5,
                               sp.world.physics.positionY, 5)),
-            focus=sp.tEva((sp.world.physics.positionX + 0.001,
+            focus=sp.tEva((sp.world.physics.positionX + 1,
                            sp.world.physics.positionY, 0))
         )
         '''
