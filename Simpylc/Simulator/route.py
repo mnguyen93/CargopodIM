@@ -11,6 +11,7 @@ import simpylc as sp
 import pid_controller as pd
 import timer as tr
 import interpolation_program as int
+import json
 
 class Route:
     def __init__(self):
@@ -25,13 +26,20 @@ class Route:
         self.inter = int.Interpolate(curve)
         self.step_index = 0
         self.loop = True
-        self.steer_angles = [0, 0, 0]
-        self.drive_distances = [2, 0, -2]
+        self.drive_distances = []
+        self.steer_angles = []
         self.velocity = 0
         self.pause = 0.02
         self.steeringPidController = pd.PidController(1.065, 0.0, -0.035)
         self.velocityPidController = pd.PidController(1.25, 0.0, 0.00065)
         self.timer = tr.Timer()
+
+        with open('route.json', 'r') as route:
+            obstacles_json = json.load(route)
+
+        for route in obstacles_json.get('route'):
+            self.drive_distances.append(route["distance"])
+            self.steer_angles.append(route["angle"])
 
         while self.loop:
             self.timer.tick()
@@ -62,7 +70,8 @@ class Route:
                 self.step_index += 1
 
             else:
-                self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
+                # self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
+                self.velocity = 1
                 if self.drive_distances[self.step_index] < 0:
                     self.targetVelocity = -self.velocity
                 else:

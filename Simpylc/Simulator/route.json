@@ -1,0 +1,39 @@
+{
+  "route": [
+    {
+      "name": "first backwards",
+      "distance": -2,
+      "angle": 0
+    },
+    {
+      "name": "first stop",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "first turn",
+      "distance": 6,
+      "angle": 7
+    },
+    {
+      "name": "second turn",
+      "distance": 7,
+      "angle": -7
+    },
+    {
+      "name": "first straight",
+      "distance": 20,
+      "angle": 0
+    },
+    {
+      "name": "second stop",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "second backwards",
+      "distance": -10,
+      "angle": 0
+    }
+  ]
+}
