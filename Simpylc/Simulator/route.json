@@ -1,7 +1,7 @@
 {
   "route": [
     {
-      "name": "first backwards",
+      "name": "first reverse",
       "distance": -2,
       "angle": 0
     },
@@ -11,12 +11,12 @@
       "angle": 0
     },
     {
-      "name": "first turn",
+      "name": "first left-turn",
       "distance": 6,
       "angle": 7
     },
     {
-      "name": "second turn",
+      "name": "first right-turn",
       "distance": 7,
       "angle": -7
     },
@@ -31,7 +31,7 @@
       "angle": 0
     },
     {
-      "name": "second backwards",
+      "name": "second reverse",
       "distance": -10,
       "angle": 0
     }
