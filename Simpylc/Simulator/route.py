@@ -35,9 +35,9 @@ class Route:
         self.timer = tr.Timer()
 
         with open('route.json', 'r') as route:
-            obstacles_json = json.load(route)
+            route_json = json.load(route)
 
-        for route in obstacles_json.get('route'):
+        for route in route_json.get('route'):
             self.drive_distances.append(route["distance"])
             self.steer_angles.append(route["angle"])
 
@@ -72,11 +72,8 @@ class Route:
             else:
                 # self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
                 self.velocity = 1
-                if self.drive_distances[self.step_index] < 0:
-                    self.targetVelocity = -self.velocity
-                else:
-                    self.targetVelocity = self.velocity
-
+                self.targetVelocity = -self.velocity if self.drive_distances[self.step_index] < 0 else self.velocity
+        
             # Goes to next step when we reach the target distance for this step.
             if sp.world.physics.distTravelled + 0 >= abs(self.drive_distances[self.step_index]):
                 self.setWheelRotationToZero()
