@@ -302,21 +302,21 @@
             "posY": -0.70
         },
 		{
-            "name": "paaltje",
+            "name": "paal",
             "length": 0.03,
             "width": 0.03,
             "posX": 4.65,
             "posY": 1.44
         },
 		{
-            "name": "paaltje",
+            "name": "paal",
             "length": 0.03,
             "width": 0.03,
             "posX": 4.65,
             "posY": 1.08
         },
 		{
-            "name": "paaltje",
+            "name": "paal",
             "length": 0.03,
             "width": 0.03,
             "posX": 4.65,
@@ -337,7 +337,7 @@
             "posY": 0.72
         },
 		{
-            "name": "paaltje",
+            "name": "paal",
             "length": 0.03,
             "width": 0.03,
             "posX": 4.65,
@@ -345,28 +345,28 @@
 			
         },
 		{
-            "name": "paaltje",
+            "name": "paal",
             "length": 0.03,
             "width": 0.03,
             "posX": 4.65,
             "posY": 0.0
         },
 		{
-            "name": "paalt",
+            "name": "paal",
             "length": 0.03,
             "width": 0.03,
             "posX": 4.75,
             "posY": 0.0
         },
 		{
-            "name": "paaltje",
+            "name": "paal",
             "length": 0.03,
             "width": 0.03,
             "posX": 4.65,
             "posY": -0.36
         },
 		{
-            "name": "paaltje",
+            "name": "paal",
             "length": 0.03,
             "width": 0.03,
             "posX": 4.65,
@@ -380,14 +380,14 @@
             "posY": -0.15
         },
 		{
-            "name": "paaltje",
+            "name": "paal",
             "length": 0.03,
             "width": 0.03,
             "posX": 4.65,
             "posY": -1.08
         },
 		{
-            "name": "paaltje",
+            "name": "paal",
             "length": 0.03,
             "width": 0.03,
             "posX": 4.65,
@@ -632,37 +632,37 @@
             "posY": 0.1
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -37.6,
             "posY": -1.2
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -37.6,
             "posY": -1.5
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -37.6,
             "posY": 0.8
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -37.6,
             "posY": 1.6
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -37.6,
             "posY": 1.8
         },
@@ -703,8 +703,8 @@
         },
         {
             "name": "paal",
-            "length": 0.1,
-            "width": 0.1,
+            "length": 0.03,
+            "width": 0.03,
             "posX": -28,
             "posY": 0.4
         },
@@ -842,65 +842,65 @@
             "posY": -0.7
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -3,
             "posY": -0.7
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -2,
             "posY": -1.56
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -2,
             "posY": -1.12
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -2,
             "posY": -0.68
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -2,
             "posY": -0.24
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -2,
             "posY": 0.2
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -2,
             "posY": 0.64
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -2,
             "posY": 1.08
         },
         {
-            "name": "paaltje",
-            "length": 0.1,
-            "width": 0.1,
+            "name": "paal",
+            "length": 0.03,
+            "width": 0.03,
             "posX": -2,
             "posY": 1.52
         },
