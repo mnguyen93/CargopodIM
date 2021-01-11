@@ -30,8 +30,8 @@ class Route:
         self.steer_angles = []
         self.velocity = 0
         self.pause = 0.02
-        self.steeringPidController = pd.PidController(1.065, 0.0, -0.035)
-        self.velocityPidController = pd.PidController(1.25, 0.0, 0.00065)
+        self.steeringPidController = pd.PidController(0.93, 0.001, 0.1)
+        self.velocityPidController = pd.PidController(0.6, 0.01, 0.002)
         self.timer = tr.Timer()
 
         with open('route.json', 'r') as route:
@@ -70,8 +70,7 @@ class Route:
                 self.step_index += 1
 
             else:
-                # self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
-                self.velocity = 1
+                self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
                 self.targetVelocity = -self.velocity if self.drive_distances[self.step_index] < 0 else self.velocity
         
             # Goes to next step when we reach the target distance for this step.
