@@ -30,7 +30,8 @@ class Route:
         self.steer_angles = []
         self.velocity = 0
         self.pause = 0.02
-        self.steeringPidController = pd.PidController(0.93, 0.001, 0.1)
+        self.setDistToZero = False
+        self.steeringPidController = pd.PidController(0.93, 0, 0.1)
         self.velocityPidController = pd.PidController(0.6, 0.01, 0.002)
         self.timer = tr.Timer()
 
@@ -42,15 +43,10 @@ class Route:
             self.steer_angles.append(route["angle"])
 
         while self.loop:
+            tm.sleep(self.pause)
             self.timer.tick()
             self.sweep()
             self.output()
-            tm.sleep(self.pause)
-
-    def setWheelRotationToZero(self):
-        sp.world.physics.distTravelled.set(0)
-        sp.world.physics.wheelRotations.set(0)
-        sp.world.physics.midWheelAngle.set(0)
 
     def sweep(self):
         # After the last step we want to stop the car and stop the loop
@@ -60,13 +56,21 @@ class Route:
             self.loop = False
         else:
             self.pause = 0.02
+
+            if self.setDistToZero:
+                sp.world.physics.distTravelled.set(0)
+                sp.world.physics.wheelRotations.set(0)
+                sp.world.physics.midWheelAngle.set(0)
+                self.setDistToZero = False
+
             self.steeringAngle = self.steeringPidController.getY(self.timer.deltaTime, self.steer_angles[self.step_index], 0)
 
             # Handles standing still, if drive_distance this step is 0, it stands still for 5 seconds.
             if self.drive_distances[self.step_index] == 0:
+                self.steeringAngle = 0
                 self.targetVelocity = 0
                 self.pause = 5
-                self.setWheelRotationToZero()
+                self.setDistToZero = True
                 self.step_index += 1
 
             else:
@@ -75,7 +79,7 @@ class Route:
         
             # Goes to next step when we reach the target distance for this step.
             if sp.world.physics.distTravelled + 0 >= abs(self.drive_distances[self.step_index]):
-                self.setWheelRotationToZero()
+                self.setDistToZero = True
                 self.step_index += 1
 
     def output(self):  # Output to simulator

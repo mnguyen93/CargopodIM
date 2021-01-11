@@ -1,38 +1,38 @@
 {
   "route": [
     {
-      "name": "first reverse",
+      "name": "reverse 1",
       "distance": -2,
       "angle": 0
     },
     {
-      "name": "first stop",
+      "name": "stop 1",
       "distance": 0,
       "angle": 0
     },
     {
-      "name": "first left-turn",
+      "name": "left-turn 1",
       "distance": 6,
       "angle": 7
     },
     {
-      "name": "first right-turn",
-      "distance": 7,
-      "angle": -7
-    },
-    {
-      "name": "first straight",
-      "distance": 20,
-      "angle": 0
-    },
-    {
-      "name": "second stop",
+      "name": "stop 1",
       "distance": 0,
       "angle": 0
     },
     {
-      "name": "second reverse",
-      "distance": -10,
+      "name": "first right-turn",
+      "distance": 6,
+      "angle": -7
+    },
+    {
+      "name": "stop 1",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "straight 2",
+      "distance": 20,
       "angle": 0
     }
   ]
