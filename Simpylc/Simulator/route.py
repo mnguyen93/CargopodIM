@@ -45,8 +45,14 @@ class Route:
         while self.loop:
             tm.sleep(self.pause)
             self.timer.tick()
+            self.input()
             self.sweep()
             self.output()
+
+    def input(self):
+        self.travel = sp.world.physics.distTravelled.set(0)
+        self.rotations = sp.world.physics.wheelRotations.set(0)
+        self.angle = sp.world.physics.midWheelAngle.set(0)
 
     def sweep(self):
         # After the last step we want to stop the car and stop the loop
@@ -58,9 +64,9 @@ class Route:
             self.pause = 0.02
 
             if self.setDistToZero:
-                sp.world.physics.distTravelled.set(0)
-                sp.world.physics.wheelRotations.set(0)
-                sp.world.physics.midWheelAngle.set(0)
+                self.travel = True
+                self.rotations = True
+                self.angle = True
                 self.setDistToZero = False
 
             self.steeringAngle = self.steeringPidController.getY(self.timer.deltaTime, self.steer_angles[self.step_index], 0)
@@ -78,10 +84,10 @@ class Route:
                 self.targetVelocity = -self.velocity if self.drive_distances[self.step_index] < 0 else self.velocity
         
             # Goes to next step when we reach the target distance for this step.
-            if sp.world.physics.distTravelled + 0 >= abs(self.drive_distances[self.step_index]):
+            if self.travel + 0  >= abs(self.drive_distances[self.step_index]):
                 self.setDistToZero = True
                 self.step_index += 1
 
     def output(self):  # Output to simulator
-        sp.world.physics.steeringAngle.set(self.steeringAngle)
-        sp.world.physics.targetVelocity.set(self.targetVelocity)
+        kit.motor3.throttle = self.targetVelocity
+        kit.motor4.throttle = self.targetVelocity
