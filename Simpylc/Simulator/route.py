@@ -63,7 +63,7 @@ class Route:
             self.pause = 0.02
 
             if self.setDistToZero:
-                print('everything is back at the initial state')
+                #print('everything is back at the initial state')
                 self.setDistToZero = False
 
             #self.steeringAngle = self.steeringPidController.getY(self.timer.deltaTime, self.steer_angles[self.step_index], 0)
@@ -80,22 +80,22 @@ class Route:
                 self.velocity = 1.0
                 #self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
                 self.targetVelocity = -self.velocity if self.seconds[self.step_index] < 0 else self.velocity
-                print('The vehicle is moving for', self.seconds[self.step_index])
+                #print('The vehicle is moving for', self.seconds[self.step_index])
         
             # Goes to next step when we reach the target distance for this step.
-            while True:
-                self.currentTime = tm.time()
-                print(self.currentTime)
-                self.deltaTime = self.currentTime - self.startTime
-                print(self.deltaTime)
-                if self.deltaTime >= abs(self.seconds[self.step_index]):
-                    self.setDistToZero = True
-                    self.step_index += 1
 
     def output(self):  # Output to simulator
-        print('The vehicle is driving')
-        #kit.motor3.throttle = self.seconds[self.step_index]
-        #kit.motor4.throttle = self.seconds[self.step_index]
+        while True:
+            self.currentTime = tm.time()
+            #print(self.currentTime)
+            self.deltaTime = self.currentTime - self.startTime
+            #print(self.deltaTime)
+            if self.deltaTime >= abs(self.seconds[self.step_index]):
+                print('The vehicle is moving')
+                #kit.motor3.throttle = self.seconds[self.step_index]
+                #kit.motor4.throttle = self.seconds[self.step_index]
+                self.setDistToZero = True
+                self.step_index += 1
 
 Vehicle = Route()
 print(Vehicle.input())
