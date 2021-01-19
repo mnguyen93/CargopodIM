@@ -35,9 +35,11 @@ class Route:
         self.velocityPidController = pd.PidController(0.6, 0.01, 0.002)
         self.timer = tr.Timer()
 
+        # Here we open the JSON-file.
         with open('route.json', 'r') as route:
             route_json = json.load(route)
 
+        # Here we loop through all the parts of the route in the JSON-file, and store them in two separate lists
         for route in route_json.get('route'):
             self.drive_distances.append(route["distance"])
             self.steer_angles.append(route["angle"])
@@ -55,14 +57,17 @@ class Route:
             self.steeringAngle = 0
             self.loop = False
         else:
+            # We want to have the pause in the while loop always on 0.02 except when we stop the car.
             self.pause = 0.02
 
+            # The first time we're in a next step, we want to set all travelled distance to 0
             if self.setDistToZero:
                 sp.world.physics.distTravelled.set(0)
                 sp.world.physics.wheelRotations.set(0)
                 sp.world.physics.midWheelAngle.set(0)
                 self.setDistToZero = False
 
+            # We set the steering angle here using the steeringPidController and the current steer angle.
             self.steeringAngle = self.steeringPidController.getY(self.timer.deltaTime, self.steer_angles[self.step_index], 0)
 
             # Handles standing still, if drive_distance this step is 0, it stands still for 5 seconds.
@@ -73,6 +78,8 @@ class Route:
                 self.setDistToZero = True
                 self.step_index += 1
 
+            # If we're not standing still, we're driving either forwards or backwards using the velocityPidController,
+            # the steer angle and the drive distance.
             else:
                 self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
                 self.targetVelocity = -self.velocity if self.drive_distances[self.step_index] < 0 else self.velocity

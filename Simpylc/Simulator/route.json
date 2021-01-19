@@ -16,24 +16,25 @@
       "angle": 7
     },
     {
-      "name": "stop 1",
+      "name": "stop 2",
       "distance": 0,
       "angle": 0
     },
     {
-      "name": "first right-turn",
+      "name": "right-turn 1",
       "distance": 6,
       "angle": -7
     },
     {
-      "name": "stop 1",
+      "name": "stop 3",
       "distance": 0,
       "angle": 0
     },
     {
-      "name": "straight 2",
+      "name": "straight 1",
       "distance": 20,
       "angle": 0
     }
   ]
 }
+
