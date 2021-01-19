@@ -4,7 +4,7 @@
       "name": "reverse 1",
       "distance": -2,
       "angle": 0,
-      "seconds": -2.324
+      "seconds": 0.324
     },
     {
       "name": "stop 1",
@@ -16,7 +16,7 @@
       "name": "left-turn 1",
       "distance": 6,
       "angle": 7,
-      "seconds": 6.973
+      "seconds": 0.973
     },
     {
       "name": "stop 1",
@@ -28,7 +28,7 @@
       "name": "first right-turn",
       "distance": 6,
       "angle": -7,
-      "seconds": 6.973
+      "seconds": 0.973
     },
     {
       "name": "stop 1",
@@ -40,7 +40,7 @@
       "name": "straight 2",
       "distance": 20,
       "angle": 0,
-      "seconds": 23.242
+      "seconds": 0.242
     }
   ]
 }

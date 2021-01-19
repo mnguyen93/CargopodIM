@@ -7,7 +7,7 @@ Velocities and steer_angles are stored in lists. These determine the route.
 """
 
 import time as tm
-import simpylc as sp
+#import simpylc as sp
 import pid_controller as pd
 import timer as tr
 import interpolation_program as int
@@ -35,10 +35,9 @@ class Route:
         #self.steeringPidController = pd.PidController(0.93, 0, 0.1)
         #self.velocityPidController = pd.PidController(0.6, 0.01, 0.002)
         self.timer = tr.Timer()
-        self.travelLeft = kit.motor3.throttle = 0.0
-        self.travelRight = kit.motor4.throttle = 0.0
-        self.rotations = 0.0
-        self.angle = 0.0
+        self.startTime = tm.time()
+
+
 
         with open('route.json', 'r') as route:
             route_json = json.load(route)
@@ -48,7 +47,7 @@ class Route:
             self.steer_angles.append(route["angle"])
             self.seconds.append(route["seconds"])
 
-        while self.loop:
+    def input(self):
             tm.sleep(self.pause)
             self.timer.tick()
             self.sweep()
@@ -64,8 +63,7 @@ class Route:
             self.pause = 0.02
 
             if self.setDistToZero:
-                kit.motor3.thorttle = 0.0
-                kit.motor4.throttle = 0.0
+                print('everything is back at the initial state')
                 self.setDistToZero = False
 
             #self.steeringAngle = self.steeringPidController.getY(self.timer.deltaTime, self.steer_angles[self.step_index], 0)
@@ -82,13 +80,22 @@ class Route:
                 self.velocity = 1.0
                 #self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
                 self.targetVelocity = -self.velocity if self.seconds[self.step_index] < 0 else self.velocity
+                print('The vehicle is moving for', self.seconds[self.step_index])
         
             # Goes to next step when we reach the target distance for this step.
-            timeout = tm.time() + self.seconds[]
-            if timeout + 0  >= abs(self.seconds[self.step_index]):
-                self.setDistToZero = True
-                self.step_index += 1
+            while True:
+                self.currentTime = tm.time()
+                print(self.currentTime)
+                self.deltaTime = self.currentTime - self.startTime
+                print(self.deltaTime)
+                if self.deltaTime >= abs(self.seconds[self.step_index]):
+                    self.setDistToZero = True
+                    self.step_index += 1
 
     def output(self):  # Output to simulator
-        kit.motor3.throttle = self.targetVelocity
-        kit.motor4.throttle = self.targetVelocity
+        print('The vehicle is driving')
+        #kit.motor3.throttle = self.seconds[self.step_index]
+        #kit.motor4.throttle = self.seconds[self.step_index]
+
+Vehicle = Route()
+print(Vehicle.input())
