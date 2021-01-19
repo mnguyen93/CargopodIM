@@ -7,7 +7,7 @@ Velocities and steer_angles are stored in lists. These determine the route.
 """
 
 import time as tm
-#import simpylc as sp
+import simpylc as sp
 import pid_controller as pd
 import timer as tr
 import interpolation_program as int
@@ -90,6 +90,5 @@ class Route:
                 self.step_index += 1
 
     def output(self):  # Output to simulator
-        print('Het voertuig rijdt naar voren of naar achteren')
-        #kit.motor3.throttle = self.targetVelocity
-        #kit.motor4.throttle = self.targetVelocity
+        kit.motor3.throttle = self.targetVelocity
+        kit.motor4.throttle = self.targetVelocity
