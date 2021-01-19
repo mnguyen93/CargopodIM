@@ -3,37 +3,44 @@
     {
       "name": "reverse 1",
       "distance": -2,
-      "angle": 0
+      "angle": 0,
+      "seconds": -2.324
     },
     {
       "name": "stop 1",
       "distance": 0,
-      "angle": 0
+      "angle": 0,
+      "seconds": 0
     },
     {
       "name": "left-turn 1",
       "distance": 6,
-      "angle": 7
+      "angle": 7,
+      "seconds": 6.973
     },
     {
       "name": "stop 1",
       "distance": 0,
-      "angle": 0
+      "angle": 0,
+      "seconds": 0
     },
     {
       "name": "first right-turn",
       "distance": 6,
-      "angle": -7
+      "angle": -7,
+      "seconds": 6.973
     },
     {
       "name": "stop 1",
       "distance": 0,
-      "angle": 0
+      "angle": 0,
+      "seconds": 0
     },
     {
       "name": "straight 2",
       "distance": 20,
-      "angle": 0
+      "angle": 0,
+      "seconds": 23.242
     }
   ]
 }
