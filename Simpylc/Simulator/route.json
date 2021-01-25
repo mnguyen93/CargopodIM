@@ -1,6 +1,6 @@
 {
   "route": [
-	{
+    {
       "name": "start",
       "distance": 0,
       "angle": 0
@@ -42,7 +42,7 @@
     },
 	{
       "name": "second straight",
-      "distance": 35,
+      "distance": 34,
       "angle": 0
     },
 	{
@@ -62,7 +62,7 @@
     },
 	{
       "name": "fourth straight",
-      "distance": 48.3,
+      "distance": 47.3,
       "angle": 0
     },
 	{
@@ -72,7 +72,7 @@
     },
 	{
       "name": "fifth straight",
-      "distance": 11.2,
+      "distance": 9.5,
       "angle": 0
     },
 	{
@@ -82,7 +82,7 @@
     },
 	{
       "name": "sixth straight",
-      "distance": 26,
+      "distance": 24,
       "angle": 0
     },
 	{
@@ -142,10 +142,10 @@
     },
 	{
       "name": "seventh straight",
-      "distance": 5.5,
+      "distance": 4.5,
       "angle": 0
     },
-	{
+    {
       "name": "short stop",
       "distance": 0,
       "angle": 0
@@ -162,7 +162,7 @@
     },
 	{
       "name": "eigth left-turn",
-      "distance": 4,
+      "distance": 5.5,
       "angle": 2
     },
 	{
@@ -182,7 +182,7 @@
     },
 	{
       "name": "eigth right-turn",
-      "distance": 4,
+      "distance": 5.5,
       "angle": -2
     },
 	{
@@ -192,7 +192,7 @@
     },
 	{
       "name": "eigth straight",
-      "distance": 70,
+      "distance": 61,
       "angle": 0
     },
 	{
@@ -214,6 +214,113 @@
       "name": "eigth left-turn",
       "distance": 5,
       "angle": 2
+    },
+    {
+      "name": "2nd half stop",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "first straight",
+      "distance": -1,
+      "angle": 0
+    },
+    {
+      "name": "first turn",
+      "distance": -6,
+      "angle": -4
+    },
+    {
+      "name": "straight",
+      "distance": -4,
+      "angle": 0
+    },
+    {
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "first turn",
+      "distance": -6,
+      "angle": 4
+    },
+    {
+      "name": "straight",
+      "distance": -5.5,
+      "angle": 0
+    },
+    {
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "third turn",
+      "distance": -9,
+      "angle": -9.5
+    },
+    {
+      "name": "first stop",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "inham straight",
+      "distance": -9.5,
+      "angle": 0
+    },
+    {
+      "name": "inham stop",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "inham turn",
+      "distance": -10,
+      "angle": 9.5
+    },
+    {
+      "name": "inham stop",
+      "distance": 0,
+      "angle": 0
+    },
+    { 
+      "name": "second inham straight",
+      "distance": -10,
+      "angle": 0
+    },
+    {
+      "name": "inham stop",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "second inham turn",
+      "distance": -9.5,
+      "angle": 10
+    },
+    {
+      "name": "third inham stop",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "third inham straight",
+      "distance": -10,
+      "angle": 0
+    },
+    {
+      "name": "fourth inham stop",
+      "distance": 0,
+      "angle": 0
+    },
+    {
+      "name": "first turn out of inham",
+      "distance": -5,
+      "angle": -13
     }
+
   ]
 }
+

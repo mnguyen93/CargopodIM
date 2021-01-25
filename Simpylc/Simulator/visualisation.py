@@ -208,8 +208,10 @@ class Visualisation (sp.Scene):
             # Set initial car position here
             # -50 is the start of the track, 50 is the end of the track
             # -Y is the right side of the car, +Y is the left side of the car
+            # sp.world.physics.positionX.set(51.6)
             sp.world.physics.positionX.set(-51)
-            sp.world.physics.positionY.set(0)
+
+            sp.world.physics.positionY.set(1)
 
         self.camera(
             position=sp.tEva((sp.world.physics.positionX + 5,
