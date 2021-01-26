@@ -74,14 +74,15 @@ class Route:
             if self.drive_distances[self.step_index] == 0:
                 self.steeringAngle = 0
                 self.targetVelocity = 0
-                self.pause = 5
+                self.pause = 2
                 self.setDistToZero = True
                 self.step_index += 1
 
             # If we're not standing still, we're driving either forwards or backwards using the velocityPidController,
             # the steer angle and the drive distance.
             else:
-                self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
+                self.velocity = 1
+                # self.velocity = self.velocityPidController.getY(self.timer.deltaTime, self.inter.find_y(self.steer_angles[self.step_index]), 0)
                 self.targetVelocity = -self.velocity if self.drive_distances[self.step_index] < 0 else self.velocity
         
             # Goes to next step when we reach the target distance for this step.
