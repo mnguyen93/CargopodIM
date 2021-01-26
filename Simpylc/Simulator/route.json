@@ -1,6 +1,225 @@
 {
   "route": [
     {
+      "name": "start",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "first straight",
+      "distance": 138,
+      "angle": 0
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "first right-turn",
+      "distance": 5,
+      "angle": -0.7
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "first left-turn",
+      "distance": 5,
+      "angle": 0.7
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "first bin",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "second straight",
+      "distance": 34,
+      "angle": 0
+    },
+	{
+      "name": "second bin",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "third straight",
+      "distance": 19,
+      "angle": 0
+    },
+	{
+      "name": "third bin",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "fourth straight",
+      "distance": 47.3,
+      "angle": 0
+    },
+	{
+      "name": "fourth bin",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "fifth straight",
+      "distance": 9.5,
+      "angle": 0
+    },
+	{
+      "name": "fifth bin",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "sixth straight",
+      "distance": 24,
+      "angle": 0
+    },
+	{
+      "name": "sixth bin",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "seventh straight",
+      "distance": 2,
+      "angle": 0
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "seventh left-turn",
+      "distance": 6,
+      "angle": 1.0
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "seventh right-turn",
+      "distance": 6,
+      "angle": -1.0
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "seventh straight",
+      "distance": 1,
+      "angle": 0
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "seventh right-turn",
+      "distance": 4,
+      "angle": -2
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "seventh straight",
+      "distance": 4.5,
+      "angle": 0
+    },
+    {
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "seventh left-turn",
+      "distance": 4,
+      "angle": 2
+    },
+	{
+      "name": "seventh bin",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "eigth left-turn",
+      "distance": 5.5,
+      "angle": 2
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "eigth straight",
+      "distance": 1,
+      "angle": 0
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "eigth right-turn",
+      "distance": 5.5,
+      "angle": -2
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "eigth straight",
+      "distance": 61,
+      "angle": 0
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "eigth right-turn",
+      "distance": 5,
+      "angle": -2
+    },
+	{
+      "name": "short stop",
+      "distance": 0,
+      "angle": 0
+    },
+	{
+      "name": "eigth left-turn",
+      "distance": 5,
+      "angle": 2
+    },
+    
+
+
+    
+    {
       "name": "2nd half stop",
       "distance": 0,
       "angle": 0
